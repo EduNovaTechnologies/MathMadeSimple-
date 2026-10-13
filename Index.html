@@ -1,0 +1,392 @@
+index.html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta name="description"
+        content="Maths Made Simple offers mathematics revision, practice quizzes and educational support.">
+
+  <title>Maths Made Simple</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #f4f7fb;
+      color: #202b3c;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #123b70;
+      color: white;
+      padding: 28px 16px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 30px;
+    }
+
+    header p {
+      margin-bottom: 0;
+    }
+
+    nav {
+      background: #09294e;
+      padding: 14px 8px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      max-width: 760px;
+      margin: auto;
+      padding: 12px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      margin: 16px 0;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px #00000012;
+    }
+
+    h2 {
+      color: #123b70;
+      margin-top: 0;
+    }
+
+    button,
+    .contact {
+      display: inline-block;
+      background: #1769aa;
+      color: white;
+      border: none;
+      border-radius: 7px;
+      padding: 12px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      text-decoration: none;
+      margin: 4px 4px 4px 0;
+    }
+
+    button:hover,
+    .contact:hover {
+      background: #0c4d83;
+    }
+
+    .whatsapp {
+      background: #16834a;
+    }
+
+    .whatsapp:hover {
+      background: #106b3b;
+    }
+
+    select {
+      width: 100%;
+      padding: 12px;
+      margin: 12px 0;
+      font-size: 16px;
+      border: 1px solid #ccd5e0;
+      border-radius: 7px;
+      background: white;
+      color: #202b3c;
+    }
+
+    #result,
+    #shareStatus {
+      font-weight: bold;
+      margin-top: 14px;
+      overflow-wrap: anywhere;
+    }
+
+    .success {
+      color: #16834a;
+    }
+
+    .error {
+      color: #b42318;
+    }
+
+    .muted {
+      color: #586579;
+      font-size: 14px;
+    }
+
+    footer {
+      background: #09294e;
+      color: white;
+      text-align: center;
+      padding: 20px;
+      margin-top: 25px;
+    }
+
+    footer p {
+      margin: 5px;
+    }
+
+    a:focus,
+    button:focus,
+    select:focus {
+      outline: 3px solid #f0b429;
+      outline-offset: 3px;
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 25px;
+      }
+
+      .card {
+        padding: 16px;
+      }
+
+      nav {
+        gap: 14px;
+      }
+
+      button,
+      .contact {
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Maths Made Simple</h1>
+    <p>Learn mathematics. Practise. Improve.</p>
+  </header>
+
+  <nav aria-label="Main navigation">
+    <a href="#home">Home</a>
+    <a href="#topics">Topics</a>
+    <a href="#quiz">Quiz</a>
+    <a href="#contact">Contact</a>
+    <a href="#share">Share</a>
+  </nav>
+
+  <main>
+
+    <!-- HOME SECTION -->
+    <section class="card" id="home">
+      <h2>Welcome to Mathematics Learning</h2>
+
+      <p>
+        Improve your mathematics skills through revision,
+        practice questions and simple explanations.
+      </p>
+
+      <a class="contact" href="#quiz">Start Practising</a>
+    </section>
+
+    <!-- MATHEMATICS TOPICS -->
+    <section class="card" id="topics">
+      <h2>Our Mathematics Topics</h2>
+
+      <p>Explore some of the topics you can revise:</p>
+
+      <ul>
+        <li>Real Numbers</li>
+        <li>Algebra</li>
+        <li>Quadratic Equations</li>
+        <li>Indices and Logarithms</li>
+        <li>Trigonometry</li>
+        <li>Differentiation</li>
+        <li>Integration</li>
+      </ul>
+
+      <p class="muted">
+        More topics, notes and revision questions can
+        be added as the website grows.
+      </p>
+    </section>
+
+    <!-- INTERACTIVE QUIZ -->
+    <section class="card" id="quiz">
+      <h2>Test Your Knowledge</h2>
+
+      <p>
+        What is the value of 3x + 2 when x = 4?
+      </p>
+
+      <label for="answer">Choose your answer:</label>
+
+      <select id="answer">
+        <option value="">Select an answer</option>
+        <option value="10">10</option>
+        <option value="14">14</option>
+        <option value="12">12</option>
+      </select>
+
+      <button type="button" onclick="checkAnswer()">
+        Check Answer
+      </button>
+
+      <p id="result" aria-live="polite"></p>
+    </section>
+
+    <!-- CONTACT SECTION -->
+    <section class="card" id="contact">
+      <h2>Contact Beulah</h2>
+
+      <p>
+        Need mathematics revision materials, tutoring,
+        or a professional website for your school
+        or business? Get in touch.
+      </p>
+
+      <p>
+        <strong>Email:</strong><br>
+
+        <a href="mailto:beulahbarasa188@gmail.com?subject=Mathematics%20Enquiry">
+          beulahbarasa188@gmail.com
+        </a>
+      </p>
+
+      <p>
+        <strong>WhatsApp:</strong><br>
+
+        <a
+          class="contact whatsapp"
+          href="https://wa.me/254741038086?text=Hello%20Beulah%2C%20I%20visited%20Maths%20Made%20Simple."
+          target="_blank"
+          rel="noopener noreferrer">
+          Chat with Beulah on WhatsApp
+        </a>
+      </p>
+
+      <p>
+        We look forward to hearing from you!
+      </p>
+    </section>
+
+    <!-- SHARE SECTION -->
+    <section class="card" id="share">
+      <h2>Share Maths Made Simple</h2>
+
+      <p>
+        Invite friends, teachers and students to explore
+        this mathematics learning project.
+      </p>
+
+      <button type="button" onclick="shareWebsite()">
+        Share Website
+      </button>
+
+      <p id="shareStatus" aria-live="polite"></p>
+
+      <p class="muted">
+        To share a working website link, publish this
+        HTML file online first. Until then, the sharing
+        button can share the project description, but
+        it cannot create a public website address.
+      </p>
+    </section>
+
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Maths Made Simple</p>
+    <p>Learning made easier through technology.</p>
+    <p>Created by Beulah</p>
+  </footer>
+
+  <script>
+    // CHECK THE MATHEMATICS ANSWER
+    function checkAnswer() {
+      const answer =
+        document.getElementById("answer").value;
+
+      const result =
+        document.getElementById("result");
+
+      result.className = "";
+
+      if (answer === "") {
+        result.textContent =
+          "Please select an answer first.";
+
+        result.classList.add("error");
+
+      } else if (answer === "14") {
+        result.textContent =
+          "Correct! 3 × 4 + 2 = 14. Well done!";
+
+        result.classList.add("success");
+
+      } else {
+        result.textContent =
+          "Not quite. Try calculating 3 × 4 + 2.";
+
+        result.classList.add("error");
+      }
+    }
+
+    // SHARE THE WEBSITE DESCRIPTION
+    async function shareWebsite() {
+      const status =
+        document.getElementById("shareStatus");
+
+      const message =
+        "Check out Maths Made Simple, a mathematics " +
+        "learning website created by Beulah!";
+
+      if (navigator.share) {
+        try {
+          await navigator.share({
+            title: "Maths Made Simple",
+            text: message,
+            url: window.location.href
+          });
+
+          status.textContent =
+            "Sharing menu opened successfully.";
+
+        } catch (error) {
+          if (error.name !== "AbortError") {
+            status.textContent =
+              "Sharing was unavailable. You can share " +
+              "your published website link instead.";
+          }
+        }
+
+      } else {
+        status.textContent =
+          "Copy your published website link and send " +
+          "it to your friends on WhatsApp.";
+      }
+    }
+  </script>
+
+</body>
+</html>
