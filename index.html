@@ -480,6 +480,53 @@
         <p id="result" aria-live="polite"></p>
       </div>
     </section>
+    
+<!-- GRADE 7 NUMBERS STRAND QUIZ -->
+<section class="section" id="grade7-numbers">
+  <h2 class="section-heading">
+    Grade 7 Mathematics: Numbers Strand
+  </h2>
+
+  <p class="section-intro">
+    Practise Whole Numbers, Factors, Fractions, Decimals,
+    Squares and Square Roots.
+  </p>
+
+  <div class="card">
+    <h3>Choose your quiz mode</h3>
+
+    <label for="grade7-mode">Quiz mode</label>
+    <select id="grade7-mode">
+      <option value="practice">Practice Mode</option>
+      <option value="test">Test Mode</option>
+    </select>
+
+    <p class="muted">
+      This quiz contains 25 questions, five from each
+      sub-strand.
+    </p>
+
+    <button class="button" type="button"
+            onclick="startGrade7Quiz()">
+      Start Grade 7 Quiz
+    </button>
+
+    <div id="grade7-quiz-area" hidden>
+      <p id="grade7-progress" aria-live="polite"></p>
+      <h3 id="grade7-question"></h3>
+      <div id="grade7-options"></div>
+      <p id="grade7-feedback" aria-live="polite"></p>
+
+      <button class="button" type="button"
+              id="grade7-next"
+              onclick="nextGrade7Question()">
+        Next Question
+      </button>
+    </div>
+
+    <div id="grade7-results" aria-live="polite"></div>
+  </div>
+</section>
 
     <!-- CONTACT -->
     <section class="section" id="contact">
