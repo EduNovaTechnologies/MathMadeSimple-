@@ -6,9 +6,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <meta name="description"
-        content="Maths Made Simple offers mathematics revision, practice quizzes and educational support.">
+        content="Maths Made Simple provides mathematics topics, interactive quizzes and downloadable revision papers for learners and teachers.">
 
-  <title>Maths Made Simple</title>
+  <meta name="theme-color" content="#123b70">
+  <title>Maths Made Simple | Learn, Practise, Improve</title>
 
   <style>
     * {
@@ -17,105 +18,202 @@
 
     html {
       scroll-behavior: smooth;
+      scroll-padding-top: 20px;
     }
 
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-      background: #f4f7fb;
+      background: #f3f6fb;
       color: #202b3c;
-      line-height: 1.6;
+      line-height: 1.7;
+    }
+
+    a {
+      overflow-wrap: anywhere;
+    }
+
+    .topbar {
+      background: #09294e;
+      color: white;
+      padding: 10px 16px;
+      text-align: center;
+      font-size: 14px;
     }
 
     header {
-      background: #123b70;
+      background: linear-gradient(135deg, #123b70, #1769aa);
       color: white;
-      padding: 28px 16px;
+      padding: 46px 18px;
       text-align: center;
     }
 
-    header h1 {
+    .brand {
       margin: 0;
-      font-size: 30px;
+      font-size: clamp(30px, 6vw, 46px);
+      line-height: 1.2;
     }
 
-    header p {
-      margin-bottom: 0;
+    .tagline {
+      font-size: 18px;
+      margin: 14px 0 22px;
+    }
+
+    .hero-text {
+      max-width: 650px;
+      margin: 0 auto 22px;
     }
 
     nav {
       background: #09294e;
-      padding: 14px 8px;
-      text-align: center;
+      padding: 14px 10px;
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      gap: 20px;
+      gap: 10px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 10;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
+      font-size: 15px;
     }
 
     nav a:hover {
-      text-decoration: underline;
+      color: #f6ce68;
     }
 
     main {
-      max-width: 760px;
+      max-width: 1050px;
       margin: auto;
-      padding: 12px;
+      padding: 20px 16px;
+    }
+
+    .section {
+      margin: 28px 0;
+      scroll-margin-top: 75px;
+    }
+
+    .section-heading {
+      color: #123b70;
+      margin: 0 0 8px;
+      font-size: 27px;
+    }
+
+    .section-intro {
+      margin-top: 0;
+      color: #586579;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
     }
 
     .card {
       background: white;
-      padding: 20px;
-      margin: 16px 0;
-      border-radius: 12px;
-      box-shadow: 0 2px 8px #00000012;
+      padding: 24px;
+      border-radius: 14px;
+      border: 1px solid #e1e8f0;
+      box-shadow: 0 4px 14px #102b4d0b;
+      min-width: 0;
     }
 
-    h2 {
-      color: #123b70;
+    .card h3 {
       margin-top: 0;
+      color: #123b70;
     }
 
-    button,
-    .contact {
+    .hero-card {
+      border-top: 5px solid #f0b429;
+    }
+
+    .paper-card {
+      border-left: 4px solid #1769aa;
+    }
+
+    .tag {
+      display: inline-block;
+      background: #e8f2ff;
+      color: #123b70;
+      border-radius: 20px;
+      padding: 4px 11px;
+      font-size: 13px;
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .button {
       display: inline-block;
       background: #1769aa;
       color: white;
-      border: none;
-      border-radius: 7px;
-      padding: 12px 16px;
-      font-size: 16px;
-      cursor: pointer;
       text-decoration: none;
-      margin: 4px 4px 4px 0;
+      border: none;
+      border-radius: 8px;
+      padding: 12px 17px;
+      font-size: 15px;
+      font-weight: bold;
+      cursor: pointer;
+      margin: 5px 5px 5px 0;
+      text-align: center;
     }
 
-    button:hover,
-    .contact:hover {
+    .button:hover {
       background: #0c4d83;
     }
 
-    .whatsapp {
+    .button-light {
+      background: white;
+      color: #123b70;
+    }
+
+    .button-light:hover {
+      background: #e8f2ff;
+      color: #09294e;
+    }
+
+    .button-green {
       background: #16834a;
     }
 
-    .whatsapp:hover {
+    .button-green:hover {
       background: #106b3b;
+    }
+
+    .topic-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .topic-list li {
+      background: #e8f2ff;
+      color: #123b70;
+      border-radius: 8px;
+      padding: 9px 13px;
+      font-weight: bold;
+    }
+
+    label {
+      display: block;
+      font-weight: bold;
+      margin-bottom: 6px;
     }
 
     select {
       width: 100%;
-      padding: 12px;
-      margin: 12px 0;
+      padding: 13px;
+      margin: 8px 0 12px;
       font-size: 16px;
       border: 1px solid #ccd5e0;
-      border-radius: 7px;
+      border-radius: 8px;
       background: white;
       color: #202b3c;
     }
@@ -123,7 +221,7 @@
     #result,
     #shareStatus {
       font-weight: bold;
-      margin-top: 14px;
+      margin-top: 12px;
       overflow-wrap: anywhere;
     }
 
@@ -140,40 +238,48 @@
       font-size: 14px;
     }
 
+    .contact-link {
+      color: #1769aa;
+      font-weight: bold;
+    }
+
     footer {
       background: #09294e;
       color: white;
       text-align: center;
-      padding: 20px;
-      margin-top: 25px;
+      padding: 26px 16px;
+      margin-top: 35px;
     }
 
     footer p {
       margin: 5px;
     }
 
-    a:focus,
-    button:focus,
-    select:focus {
+    a:focus-visible,
+    button:focus-visible,
+    select:focus-visible {
       outline: 3px solid #f0b429;
       outline-offset: 3px;
     }
 
-    @media (max-width: 480px) {
-      header h1 {
-        font-size: 25px;
+    @media (max-width: 650px) {
+      header {
+        padding: 34px 16px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
       }
 
       .card {
-        padding: 16px;
+        padding: 19px;
       }
 
       nav {
-        gap: 14px;
+        gap: 10px 16px;
       }
 
-      button,
-      .contact {
+      .button {
         max-width: 100%;
       }
     }
@@ -182,14 +288,36 @@
 
 <body>
 
-  <header>
-    <h1>Maths Made Simple</h1>
-    <p>Learn mathematics. Practise. Improve.</p>
+  <div class="topbar">
+    Mathematics revision • Practice quizzes • Learning resources
+  </div>
+
+  <header id="home">
+    <h1 class="brand">Maths Made Simple</h1>
+
+    <p class="tagline">
+      Innovating Learning, Empowering Futures
+    </p>
+
+    <p class="hero-text">
+      Welcome! Strengthen your mathematics skills with
+      revision topics, interactive practice and downloadable
+      learning materials.
+    </p>
+
+    <a class="button button-light" href="#topics">
+      Explore Topics
+    </a>
+
+    <a class="button button-light" href="#revision-papers">
+      Revision Papers
+    </a>
   </header>
 
   <nav aria-label="Main navigation">
     <a href="#home">Home</a>
     <a href="#topics">Topics</a>
+    <a href="#revision-papers">Revision Papers</a>
     <a href="#quiz">Quiz</a>
     <a href="#contact">Contact</a>
     <a href="#share">Share</a>
@@ -197,215 +325,306 @@
 
   <main>
 
-    <!-- HOME SECTION -->
-    <section class="card" id="home">
-      <h2>Welcome to Mathematics Learning</h2>
+    <!-- WELCOME -->
+    <section class="section">
+      <div class="card hero-card">
+        <span class="tag">Welcome to our learning platform</span>
 
-      <p>
-        Improve your mathematics skills through revision,
-        practice questions and simple explanations.
-      </p>
+        <h2 class="section-heading">
+          Mathematics Made Easier
+        </h2>
 
-      <a class="contact" href="#quiz">Start Practising</a>
+        <p>
+          Mathematics becomes easier through understanding,
+          regular practice and learning from mistakes.
+          Use this website to revise concepts, test your
+          knowledge and access available revision papers.
+        </p>
+
+        <p>
+          Whether you are a learner, teacher or mathematics
+          enthusiast, start learning one step at a time.
+        </p>
+
+        <a class="button" href="#quiz">Try the Quiz</a>
+        <a class="button" href="#revision-papers">
+          Browse Revision Papers
+        </a>
+      </div>
     </section>
 
-    <!-- MATHEMATICS TOPICS -->
-    <section class="card" id="topics">
-      <h2>Our Mathematics Topics</h2>
+    <!-- TOPICS -->
+    <section class="section" id="topics">
+      <h2 class="section-heading">Mathematics Topics</h2>
 
-      <p>Explore some of the topics you can revise:</p>
+      <p class="section-intro">
+        Explore some of the mathematics areas featured in
+        our learning project.
+      </p>
 
-      <ul>
-        <li>Real Numbers</li>
-        <li>Algebra</li>
-        <li>Quadratic Equations</li>
-        <li>Indices and Logarithms</li>
-        <li>Trigonometry</li>
-        <li>Differentiation</li>
-        <li>Integration</li>
-      </ul>
+      <div class="card">
+        <ul class="topic-list">
+          <li>Real Numbers</li>
+          <li>Fractions and Decimals</li>
+          <li>Algebra</li>
+          <li>Quadratic Equations</li>
+          <li>Indices and Logarithms</li>
+          <li>Geometry</li>
+          <li>Trigonometry</li>
+          <li>Differentiation</li>
+          <li>Integration</li>
+          <li>Statistics</li>
+        </ul>
+
+        <p class="muted">
+          This is a list of topics, not a complete set of notes.
+          More explanations, examples and practice questions
+          can be added as the website develops.
+        </p>
+      </div>
+    </section>
+
+    <!-- REVISION PAPERS -->
+    <section class="section" id="revision-papers">
+      <h2 class="section-heading">Revision Papers</h2>
+
+      <p class="section-intro">
+        Access available mathematics practice materials.
+        Question papers and marking schemes are provided
+        as separate PDF files.
+      </p>
+
+      <div class="card-grid">
+        <article class="card paper-card">
+          <span class="tag">Grade 7 Mathematics</span>
+
+          <h3>Revision Paper 001</h3>
+
+          <p>
+            A practice paper covering selected mathematics
+            topics. Use it to test your understanding and
+            identify areas that need more revision.
+          </p>
+
+          <p class="muted">
+            Practice resource • PDF format
+          </p>
+
+          <a class="button"
+             href="Maths_Made_Simple_Grade_7_Revision_Paper_001.pdf"
+             target="_blank"
+             rel="noopener noreferrer">
+            Open Question Paper
+          </a>
+        </article>
+
+        <article class="card paper-card">
+          <span class="tag">Answers and Workings</span>
+
+          <h3>Revision Paper 001 Marking Scheme</h3>
+
+          <p>
+            Review the suggested answers and workings
+            after attempting the questions independently.
+          </p>
+
+          <p class="muted">
+            Answer guide • PDF format
+          </p>
+
+          <a class="button"
+             href="Maths_Made_Simple_Grade_7_Marking_Scheme_001.pdf"
+             target="_blank"
+             rel="noopener noreferrer">
+            Open Marking Scheme
+          </a>
+        </article>
+      </div>
 
       <p class="muted">
-        More topics, notes and revision questions can
-        be added as the website grows.
+        These are independent revision materials, not an
+        official examination paper or a claim of official
+        curriculum approval.
       </p>
     </section>
 
-    <!-- INTERACTIVE QUIZ -->
-    <section class="card" id="quiz">
-      <h2>Test Your Knowledge</h2>
+    <!-- QUIZ -->
+    <section class="section" id="quiz">
+      <h2 class="section-heading">Test Your Knowledge</h2>
 
-      <p>
-        What is the value of 3x + 2 when x = 4?
+      <p class="section-intro">
+        Try this short algebra question.
       </p>
 
-      <label for="answer">Choose your answer:</label>
+      <div class="card">
+        <h3>Question 1</h3>
 
-      <select id="answer">
-        <option value="">Select an answer</option>
-        <option value="10">10</option>
-        <option value="14">14</option>
-        <option value="12">12</option>
-      </select>
+        <p>
+          What is the value of 3x + 2 when x = 4?
+        </p>
 
-      <button type="button" onclick="checkAnswer()">
-        Check Answer
-      </button>
+        <label for="answer">Choose your answer:</label>
 
-      <p id="result" aria-live="polite"></p>
+        <select id="answer">
+          <option value="">Select an answer</option>
+          <option value="10">10</option>
+          <option value="14">14</option>
+          <option value="12">12</option>
+        </select>
+
+        <button class="button" type="button"
+                onclick="checkAnswer()">
+          Check Answer
+        </button>
+
+        <p id="result" aria-live="polite"></p>
+      </div>
     </section>
 
-    <!-- CONTACT SECTION -->
-    <section class="card" id="contact">
-      <h2>Contact Beulah</h2>
+    <!-- CONTACT -->
+    <section class="section" id="contact">
+      <h2 class="section-heading">Contact Us</h2>
 
-      <p>
-        Need mathematics revision materials, tutoring,
-        or a professional website for your school
-        or business? Get in touch.
+      <p class="section-intro">
+        Have a question about mathematics revision materials
+        or educational website development? Get in touch.
       </p>
 
-      <p>
-        <strong>Email:</strong><br>
+      <div class="card">
+        <h3>Contact Beulah</h3>
 
-        <a href="mailto:beulahbarasa188@gmail.com?subject=Mathematics%20Enquiry">
-          beulahbarasa188@gmail.com
+        <p>
+          <strong>Email</strong><br>
+          <a class="contact-link"
+             href="mailto:beulahbarasa188@gmail.com?subject=Maths%20Made%20Simple%20Enquiry">
+            beulahbarasa188@gmail.com
+          </a>
+        </p>
+
+        <p>
+          <strong>WhatsApp</strong>
+        </p>
+
+        <a class="button button-green"
+           href="https://wa.me/254741038086?text=Hello%2C%20I%20visited%20Maths%20Made%20Simple."
+           target="_blank"
+           rel="noopener noreferrer">
+          Chat on WhatsApp
         </a>
-      </p>
 
-      <p>
-        <strong>WhatsApp:</strong><br>
-
-        <a
-          class="contact whatsapp"
-          href="https://wa.me/254741038086?text=Hello%20Beulah%2C%20I%20visited%20Maths%20Made%20Simple."
-          target="_blank"
-          rel="noopener noreferrer">
-          Chat with Beulah on WhatsApp
-        </a>
-      </p>
-
-      <p>
-        We look forward to hearing from you!
-      </p>
+        <p class="muted">
+          Please do not send passwords, PINs or verification
+          codes through contact forms or messages.
+        </p>
+      </div>
     </section>
 
-    <!-- SHARE SECTION -->
-    <section class="card" id="share">
-      <h2>Share Maths Made Simple</h2>
+    <!-- SHARE -->
+    <section class="section" id="share">
+      <h2 class="section-heading">Share Our Website</h2>
 
-      <p>
-        Invite friends, teachers and students to explore
-        this mathematics learning project.
-      </p>
+      <div class="card">
+        <p>
+          Help other learners and teachers discover Maths
+          Made Simple by sharing the published website link.
+        </p>
 
-      <button type="button" onclick="shareWebsite()">
-        Share Website
-      </button>
+        <button class="button" type="button"
+                onclick="shareWebsite()">
+          Share Website
+        </button>
 
-      <p id="shareStatus" aria-live="polite"></p>
+        <button class="button" type="button"
+                onclick="copyWebsiteLink()">
+          Copy Website Link
+        </button>
 
-      <p class="muted">
-        To share a working website link, publish this
-        HTML file online first. Until then, the sharing
-        button can share the project description, but
-        it cannot create a public website address.
-      </p>
+        <p id="shareStatus" aria-live="polite"></p>
+      </div>
     </section>
 
   </main>
 
   <footer>
-    <p>&copy; 2026 Maths Made Simple</p>
-    <p>Learning made easier through technology.</p>
+    <p><strong>Maths Made Simple</strong></p>
+    <p>Innovating Learning, Empowering Futures.</p>
     <p>Created by Beulah</p>
+    <p>&copy; <span id="year">2026</span> Maths Made Simple</p>
   </footer>
 
   <script>
     // CHECK THE MATHEMATICS ANSWER
     function checkAnswer() {
-      const answer =
-        document.getElementById("answer").value;
-
-      const result =
-        document.getElementById("result");
+      const answer = document.getElementById("answer").value;
+      const result = document.getElementById("result");
 
       result.className = "";
 
       if (answer === "") {
-        result.textContent =
-          "Please select an answer first.";
-
+        result.textContent = "Please select an answer first.";
         result.classList.add("error");
-
       } else if (answer === "14") {
         result.textContent =
           "Correct! 3 × 4 + 2 = 14. Well done!";
-
         result.classList.add("success");
-
       } else {
         result.textContent =
-          "Not quite. Try calculating 3 × 4 + 2.";
-
+          "Not quite. Calculate 3 × 4 first, then add 2.";
         result.classList.add("error");
       }
     }
 
-    // SHARE THE WEBSITE DESCRIPTION
+    // SHARE THE PUBLISHED WEBSITE
     async function shareWebsite() {
-      const status =
-        document.getElementById("shareStatus");
+      const status = document.getElementById("shareStatus");
+      const websiteUrl = window.location.href;
 
-      const message =
-        "Check out Maths Made Simple, a mathematics " +
-        "learning website created by Beulah!";
-
-      if (navigator.share) {
-        try {
+      try {
+        if (navigator.share) {
           await navigator.share({
             title: "Maths Made Simple",
-            text: message,
-            url: window.location.href
+            text: "Explore mathematics revision and practice resources.",
+            url: websiteUrl
           });
 
-          status.textContent =
-            "Sharing menu opened successfully.";
-
-        } catch (error) {
-          if (error.name !== "AbortError") {
-            status.textContent =
-              "Sharing was unavailable. You can share " +
-              "your published website link instead.";
-          }
+          status.textContent = "Sharing options opened.";
+        } else {
+          await copyWebsiteLink();
         }
-
-      } else {
-        status.textContent =
-          "Copy your published website link and send " +
-          "it to your friends on WhatsApp.";
+      } catch (error) {
+        if (error.name !== "AbortError") {
+          status.textContent =
+            "Sharing could not be completed. Try Copy Website Link.";
+        }
       }
     }
+
+    // COPY THE CURRENT WEBSITE LINK
+    async function copyWebsiteLink() {
+      const status = document.getElementById("shareStatus");
+      const websiteUrl = window.location.href;
+
+      try {
+        if (navigator.clipboard && window.isSecureContext) {
+          await navigator.clipboard.writeText(websiteUrl);
+          status.textContent =
+            "Website link copied. You can now paste and share it.";
+        } else {
+          status.textContent =
+            "Copy this website address from your browser: " +
+            websiteUrl;
+        }
+      } catch (error) {
+        status.textContent =
+          "Copy the website address from your browser: " +
+          websiteUrl;
+      }
+    }
+
+    // KEEP THE FOOTER YEAR CURRENT
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
   </script>
-  
-<section id="revision-papers">
-  <h2>Maths Made Simple Revision Papers</h2>
-  <p>Grade 7 Mathematics — Revision Paper 001</p>
-
-  <p>
-    <a href="Maths_Made_Simple_Grade_7_Revision_Paper_001.pdf"
-       target="_blank">
-      Download Question Paper (PDF)
-    </a>
-  </p>
-
-  <p>
-    <a href="Maths_Made_Simple_Grade_7_Marking_Scheme_001.pdf"
-       target="_blank">
-      Download Marking Scheme (PDF)
-    </a>
-  </p>
-</section>
 
 </body>
 </html>
