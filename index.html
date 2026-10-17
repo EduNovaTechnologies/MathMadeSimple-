@@ -9,7 +9,19 @@
         content="Maths Made Simple provides mathematics topics, interactive quizzes and downloadable revision papers for learners and teachers.">
 
   <meta name="theme-color" content="#123b70">
-  <title>Maths Made Simple | Learn, Practise, Improve</title>
+  
+<div class="edunova-brand">
+  <div class="edunova-icon">🎓</div>
+  <div>
+    <h2>EduNova Technologies</h2>
+    <p>Innovating Learning, Empowering Futures</p>
+  </div>
+</div>
+
+<h1>Maths Made Simple</h1>
+<p class="product-label">
+  A digital learning product by EduNova Technologies
+</p>
 
   <style>
     * {
@@ -283,6 +295,50 @@
         max-width: 100%;
       }
     }
+    
+.edunova-brand {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 18px 12px;
+  margin: 0 auto 12px;
+  max-width: 900px;
+  color: #174ea6;
+  text-align: left;
+}
+
+.edunova-icon {
+  font-size: 38px;
+}
+
+.edunova-brand h2 {
+  margin: 0;
+  font-size: clamp(20px, 4vw, 30px);
+}
+
+.edunova-brand p {
+  margin: 5px 0 0;
+  font-size: 13px;
+  color: #52647a;
+}
+
+.product-label {
+  text-align: center;
+  font-size: 14px;
+  color: #52647a;
+}
+
+@media (max-width: 480px) {
+  .edunova-brand {
+    gap: 8px;
+    padding: 12px 6px;
+  }
+
+  .edunova-icon {
+    font-size: 30px;
+  }
+}
   </style>
 </head>
 
