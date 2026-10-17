@@ -551,6 +551,40 @@
 .edunova-footer p {
   line-height: 1.6;
     }
+    
+/* Mobile-friendly navigation */
+nav[aria-label="Main navigation"] {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 12px;
+}
+
+nav[aria-label="Main navigation"] a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  text-align: center;
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  nav[aria-label="Main navigation"] {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+  }
+
+  nav[aria-label="Main navigation"] a {
+    flex: 0 0 auto;
+    font-size: 14px;
+  }
+}
   </style>
 </head>
 
