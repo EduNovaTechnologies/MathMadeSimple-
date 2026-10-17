@@ -897,99 +897,6 @@ input, select, textarea, button {
         <p id="result" aria-live="polite"></p>
       </div>
     </section>
-    
-<!-- GRADE 7 NUMBERS STRAND QUIZ -->
-<section class="section" id="grade7-numbers">
-  <h2 class="section-heading">
-    Grade 7 Mathematics: Numbers Strand
-  </h2>
-
-  <p class="section-intro">
-    Practise Whole Numbers, Factors, Fractions, Decimals,
-    Squares and Square Roots.
-  </p>
-
-  <div class="card">
-    <h3>Choose your quiz mode</h3>
-
-    <label for="grade7-mode">Quiz mode</label>
-    <select id="grade7-mode">
-      <option value="practice">Practice Mode</option>
-      <option value="test">Test Mode</option>
-    </select>
-
-    <p class="muted">
-      This quiz contains 25 questions, five from each
-      sub-strand.
-    </p>
-
-    <button class="button" type="button"
-            onclick="startGrade7Quiz()">
-      Start Grade 7 Quiz
-    </button>
-
-    <div id="grade7-quiz-area" hidden>
-      <p id="grade7-progress" aria-live="polite"></p>
-      <h3 id="grade7-question"></h3>
-      <div id="grade7-options"></div>
-      <p id="grade7-feedback" aria-live="polite"></p>
-
-      <button class="button" type="button"
-              id="grade7-next"
-              onclick="nextGrade7Question()">
-        Next Question
-      </button>
-    </div>
-
-    <div id="grade7-results" aria-live="polite"></div>
-  </div>
-  <!-- SMART WORKSHEET GENERATOR -->
-<section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
-  <h2 style="text-align:center;">Smart Worksheet Generator</h2>
-  <p style="text-align:center;">Create Mathematics worksheets for your learners.</p>
-
-  <label for="wg-grade"><b>Select Grade:</b></label>
-  <select id="wg-grade" style="width:100%; padding:10px; margin:8px 0 16px;">
-    <option value="Grade 6">Grade 6</option>
-    <option value="Grade 7" selected>Grade 7</option>
-    <option value="Grade 8">Grade 8</option>
-    <option value="Grade 9">Grade 9</option>
-  </select>
-
-  <label for="wg-topic"><b>Select Topic:</b></label>
-  <select id="wg-topic" style="width:100%; padding:10px; margin:8px 0 16px;">
-    <option>Whole Numbers</option>
-    <option>Factors</option>
-    <option>Fractions</option>
-    <option>Decimals</option>
-    <option>Squares and Square Roots</option>
-    <option>Algebraic Expressions</option>
-    <option>Linear Equations</option>
-  </select>
-
-  <label for="wg-difficulty"><b>Difficulty:</b></label>
-  <select id="wg-difficulty" style="width:100%; padding:10px; margin:8px 0 16px;">
-    <option value="Mixed">Mixed</option>
-    <option value="Simple">Simple</option>
-    <option value="Moderate">Moderate</option>
-    <option value="Challenging">Challenging</option>
-  </select>
-
-  <label for="wg-count"><b>Number of Questions:</b></label>
-  <select id="wg-count" style="width:100%; padding:10px; margin:8px 0 16px;">
-    <option value="5">5 Questions</option>
-    <option value="10" selected>10 Questions</option>
-    <option value="15">15 Questions</option>
-  </select>
-
-  <button type="button" onclick="generateWorksheet()" style="width:100%; padding:12px; background:#174ea6; color:white; border:0; border-radius:6px; font-size:16px;">
-    Generate Worksheet
-  </button>
-
-  <div id="wg-message" role="status" style="margin-top:12px;"></div>
-  <div id="wg-output" style="margin-top:20px;"></div>
-</section>
-<!-- END SMART WORKSHEET GENERATOR -->
   
 <section id="grade7-topics" style="padding:40px 20px; max-width:1000px; margin:auto;">
   <h2 style="text-align:center; color:#123b70;">Grade 7 Mathematics Topics</h2>
@@ -1043,8 +950,100 @@ input, select, textarea, button {
     </ul>
   </details>
 </section>
+    <!-- GRADE 7 NUMBERS STRAND QUIZ -->
+<section class="section" id="grade7-numbers">
+  <h2 class="section-heading">
+    Grade 7 Mathematics: Numbers Strand
+  </h2>
+
+  <p class="section-intro">
+    Practise Whole Numbers, Factors, Fractions, Decimals,
+    Squares and Square Roots.
+  </p>
+
+  <div class="card">
+    <h3>Choose your quiz mode</h3>
+
+    <label for="grade7-mode">Quiz mode</label>
+    <select id="grade7-mode">
+      <option value="practice">Practice Mode</option>
+      <option value="test">Test Mode</option>
+    </select>
+
+    <p class="muted">
+      This quiz contains 25 questions, five from each
+      sub-strand.
+    </p>
+
+    <button class="button" type="button"
+            onclick="startGrade7Quiz()">
+      Start Grade 7 Quiz
+    </button>
+
+    <div id="grade7-quiz-area" hidden>
+      <p id="grade7-progress" aria-live="polite"></p>
+      <h3 id="grade7-question"></h3>
+      <div id="grade7-options"></div>
+      <p id="grade7-feedback" aria-live="polite"></p>
+
+      <button class="button" type="button"
+              id="grade7-next"
+              onclick="nextGrade7Question()">
+        Next Question
+      </button>
+    </div>
+
+    <div id="grade7-results" aria-live="polite"></div>
+  </div>
 
 </section>
+      <!-- SMART WORKSHEET GENERATOR -->
+<section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
+  <h2 style="text-align:center;">Smart Worksheet Generator</h2>
+  <p style="text-align:center;">Create Mathematics worksheets for your learners.</p>
+
+  <label for="wg-grade"><b>Select Grade:</b></label>
+  <select id="wg-grade" style="width:100%; padding:10px; margin:8px 0 16px;">
+    <option value="Grade 6">Grade 6</option>
+    <option value="Grade 7" selected>Grade 7</option>
+    <option value="Grade 8">Grade 8</option>
+    <option value="Grade 9">Grade 9</option>
+  </select>
+
+  <label for="wg-topic"><b>Select Topic:</b></label>
+  <select id="wg-topic" style="width:100%; padding:10px; margin:8px 0 16px;">
+    <option>Whole Numbers</option>
+    <option>Factors</option>
+    <option>Fractions</option>
+    <option>Decimals</option>
+    <option>Squares and Square Roots</option>
+    <option>Algebraic Expressions</option>
+    <option>Linear Equations</option>
+  </select>
+
+  <label for="wg-difficulty"><b>Difficulty:</b></label>
+  <select id="wg-difficulty" style="width:100%; padding:10px; margin:8px 0 16px;">
+    <option value="Mixed">Mixed</option>
+    <option value="Simple">Simple</option>
+    <option value="Moderate">Moderate</option>
+    <option value="Challenging">Challenging</option>
+  </select>
+
+  <label for="wg-count"><b>Number of Questions:</b></label>
+  <select id="wg-count" style="width:100%; padding:10px; margin:8px 0 16px;">
+    <option value="5">5 Questions</option>
+    <option value="10" selected>10 Questions</option>
+    <option value="15">15 Questions</option>
+  </select>
+
+  <button type="button" onclick="generateWorksheet()" style="width:100%; padding:12px; background:#174ea6; color:white; border:0; border-radius:6px; font-size:16px;">
+    Generate Worksheet
+  </button>
+
+  <div id="wg-message" role="status" style="margin-top:12px;"></div>
+  <div id="wg-output" style="margin-top:20px;"></div>
+</section>
+<!-- END SMART WORKSHEET GENERATOR -->
     <section id="about-edunova" class="edunova-about">
   <div class="about-container">
     <p class="about-eyebrow">WHO WE ARE</p>
