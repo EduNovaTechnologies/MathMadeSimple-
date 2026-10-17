@@ -1484,9 +1484,12 @@ function nextGrade7Question() {
   if (practice) {
     const feedback = document.getElementById("grade7-feedback");
 
-    feedback.textContent =
-      (chosen === q.answer ? "Correct! " : "Not quite. ") +
-      q.explanation;
+feedback.textContent =
+  (chosen === q.answer
+    ? "✅ Correct! "
+    : "❌ Not quite. The correct answer is: " +
+      q.options[q.answer] + ". ") +
+  q.explanation;
 
     // Prevent changing the answer after submitting it.
     document.querySelectorAll(
