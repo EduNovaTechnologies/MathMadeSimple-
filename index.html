@@ -339,6 +339,114 @@
     font-size: 30px;
   }
 }
+    
+/* EduNova Technologies About Section */
+.edunova-about {
+  padding: 48px 18px;
+  background: #f2f6fc;
+  color: #172b4d;
+}
+
+.about-container {
+  max-width: 950px;
+  margin: 0 auto;
+}
+
+.about-eyebrow {
+  color: #174ea6;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-size: 12px;
+}
+
+.edunova-about h2 {
+  font-size: clamp(26px, 5vw, 38px);
+  margin: 8px 0;
+}
+
+.about-tagline {
+  color: #174ea6;
+  font-weight: bold;
+}
+
+.about-intro {
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 760px;
+  margin: 22px 0;
+}
+
+.about-card {
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 16px 0;
+  border-left: 4px solid #174ea6;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.06);
+}
+
+.about-card h3,
+.about-feature h4 {
+  margin-top: 0;
+  color: #174ea6;
+}
+
+.about-card p,
+.about-feature p,
+.about-product p {
+  line-height: 1.7;
+}
+
+.about-features {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+
+.about-feature {
+  background: white;
+  border-radius: 12px;
+  padding: 18px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.05);
+}
+
+.about-feature span {
+  font-size: 30px;
+}
+
+.about-product {
+  background: #174ea6;
+  color: white;
+  padding: 24px;
+  border-radius: 14px;
+  margin-top: 28px;
+}
+
+.about-product h3 {
+  font-size: 25px;
+  margin: 8px 0;
+}
+
+.about-product p:first-child {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  font-weight: bold;
+}
+
+@media (max-width: 600px) {
+  .about-features {
+    grid-template-columns: 1fr;
+  }
+
+  .edunova-about {
+    padding: 32px 14px;
+  }
+
+  .about-feature {
+    padding: 16px;
+  }
+}
   </style>
 </head>
 
@@ -648,6 +756,75 @@
     </section>
 
   </main>
+  
+<!-- ABOUT EDUNOVA TECHNOLOGIES -->
+<section id="about-edunova" class="edunova-about">
+  <div class="about-container">
+    <p class="about-eyebrow">WHO WE ARE</p>
+
+    <h2>About EduNova Technologies</h2>
+
+    <p class="about-tagline">
+      Innovating Learning, Empowering Futures
+    </p>
+
+    <p class="about-intro">
+      EduNova Technologies is an emerging educational
+      technology initiative focused on making learning
+      more accessible, engaging and effective through
+      digital solutions.
+    </p>
+
+    <div class="about-card">
+      <h3>Our Mission</h3>
+      <p>
+        To empower learners and educators with innovative,
+        accessible and practical digital learning tools.
+      </p>
+    </div>
+
+    <div class="about-card">
+      <h3>Our Vision</h3>
+      <p>
+        To contribute to a future where technology helps
+        learners access quality educational resources
+        and opportunities.
+      </p>
+    </div>
+
+    <h3>What We Aim to Provide</h3>
+
+    <div class="about-features">
+      <div class="about-feature">
+        <span>📚</span>
+        <h4>Digital Learning</h4>
+        <p>Notes, examples and revision resources.</p>
+      </div>
+
+      <div class="about-feature">
+        <span>📝</span>
+        <h4>Teacher Tools</h4>
+        <p>Worksheets, questions and assessment support.</p>
+      </div>
+
+      <div class="about-feature">
+        <span>💡</span>
+        <h4>Learning Innovation</h4>
+        <p>Practical ways to use technology in education.</p>
+      </div>
+    </div>
+
+    <div class="about-product">
+      <p>OUR FIRST DIGITAL LEARNING PRODUCT</p>
+      <h3>Maths Made Simple</h3>
+      <p>
+        Supporting mathematics learning through topics,
+        quizzes, revision papers and practice worksheets.
+      </p>
+    </div>
+  </div>
+</section>
+<!-- END ABOUT EDUNOVA TECHNOLOGIES -->
 
   <footer>
     <p><strong>Maths Made Simple</strong></p>
