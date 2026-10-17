@@ -606,6 +606,76 @@ nav[aria-label="Main navigation"] a {
 #backToTop:hover {
   background: #2874D0;
 }
+    
+/* Mobile-friendly layout improvements */
+html {
+  width: 100%;
+  overflow-x: hidden;
+}
+
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+input, select, textarea, button {
+  max-width: 100%;
+  font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  h1 {
+    font-size: clamp(26px, 7vw, 34px);
+    overflow-wrap: anywhere;
+  }
+
+  h2 {
+    font-size: clamp(22px, 5.5vw, 28px);
+  }
+
+  h3 {
+    font-size: 20px;
+  }
+
+  section, article, .container, .card {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  button, .btn {
+    min-height: 44px;
+    padding: 10px 16px;
+  }
+
+  nav[aria-label="Main navigation"] {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
+
+  nav[aria-label="Main navigation"] a {
+    flex: 0 1 auto;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  table {
+    display: block;
+    max-width: 100%;
+    overflow-x: auto;
+  }
+}
   </style>
 </head>
 
