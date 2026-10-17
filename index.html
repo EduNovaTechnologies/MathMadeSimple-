@@ -1225,22 +1225,28 @@ function generateWorksheet() {
     `<p><b>${i + 1}.</b> ${q.a}</p>`
   ).join("");
 
-  output.innerHTML = `
-    <div id="wg-print-area">
+  
+output.innerHTML = `
+  <div id="wg-print-area">
+    <div id="wg-questions">
       <h2>${grade} Mathematics Worksheet</h2>
       <p><b>Topic:</b> ${topic} | <b>Difficulty:</b> ${difficulty}</p>
       <p><b>Name:</b> _____________________ <b>Date:</b> ______________</p>
       <p><b>Instructions:</b> Answer all questions. Show your working.</p>
       ${questionsHTML}
-      <hr>
+    </div>
+
+    <div id="wg-answer-key">
       <h2>Answer Key — Teacher's Copy</h2>
       ${answersHTML}
       <p><b>Total:</b> ${chosen.length * 2} marks</p>
     </div>
-    <button type="button" onclick="printWorksheet()" style="padding:12px; margin-top:12px; background:#188038; color:white; border:0; border-radius:6px;">
-      Print / Save as PDF
-    </button>
-  `;
+  </div>
+
+  <button type="button" onclick="printWorksheet()" style="padding:12px; margin-top:12px; background:#188038; color:white; border:0; border-radius:6px;">
+    Print / Save as PDF
+  </button>
+`;
 
   message.textContent = "Worksheet generated successfully!";
 }
