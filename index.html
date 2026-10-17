@@ -585,6 +585,27 @@ nav[aria-label="Main navigation"] a {
     font-size: 14px;
   }
 }
+    
+#backToTop {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+  background: #174EA6;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 12px 18px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#backToTop:hover {
+  background: #2874D0;
+}
   </style>
 </head>
 
@@ -1890,6 +1911,26 @@ function printWorksheet() {
 }
   
 </script>
+  
+<button id="backToTop" aria-label="Back to top"
+  title="Back to top">↑ Top</button>
+
+<script>
+  const backToTop = document.getElementById("backToTop");
+
+  window.addEventListener("scroll", function () {
+    backToTop.style.display =
+      window.scrollY > 300 ? "block" : "none";
+  });
+
+  backToTop.addEventListener("click", function () {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth"
+    });
+  });
+</script>
+</body>
 </body>
 </html>
 </body>
