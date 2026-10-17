@@ -909,7 +909,7 @@ function showGrade7Question() {
       ? "Finish Quiz"
       : "Submit and Continue";
 }
-
+    
 function nextGrade7Question() {
   if (grade7Submitted) return;
 
@@ -936,11 +936,60 @@ function nextGrade7Question() {
     document.getElementById("grade7-mode").value === "practice";
 
   if (practice) {
-    document.getElementById("grade7-feedback").textContent =
+    const feedback = document.getElementById("grade7-feedback");
+
+    feedback.textContent =
       (chosen === q.answer ? "Correct! " : "Not quite. ") +
       q.explanation;
+
+    // Prevent changing the answer after submitting it.
+    document.querySelectorAll(
+      'input[name="grade7-answer"]'
+    ).forEach(input => {
+      input.disabled = true;
+    });
+
+    // Hide the normal Next button and show Continue instead.
+    const nextButton = document.querySelector(
+      '[onclick="nextGrade7Question()"]'
+    );
+
+    if (nextButton) {
+      nextButton.style.display = "none";
+    }
+
+    let continueButton = document.getElementById(
+      "grade7-continue-practice"
+    );
+
+    if (!continueButton) {
+      continueButton = document.createElement("button");
+      continueButton.id = "grade7-continue-practice";
+      continueButton.type = "button";
+      continueButton.textContent = "Continue to Next Question";
+      continueButton.onclick = function () {
+        continueButton.style.display = "none";
+
+        if (nextButton) {
+          nextButton.style.display = "";
+        }
+
+        if (grade7Index < grade7Questions.length - 1) {
+          grade7Index++;
+          showGrade7Question();
+        } else {
+          finishGrade7Quiz();
+        }
+      };
+
+      feedback.insertAdjacentElement("afterend", continueButton);
+    }
+
+    continueButton.style.display = "";
+    return;
   }
 
+  // Test Mode: move on without showing the answer immediately.
   if (grade7Index < grade7Questions.length - 1) {
     grade7Index++;
     showGrade7Question();
