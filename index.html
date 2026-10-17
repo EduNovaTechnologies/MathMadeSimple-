@@ -1336,13 +1336,50 @@ function printWorksheet() {
           page-break-before: always;
           break-before: page;
         }
+          
+.question {
+  margin: 0 0 26px 0;
+  padding: 0 0 12px 0;
+  line-height: 1.8;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
 
-        .question {
-          margin: 18px 0;
-          break-inside: avoid;
-          page-break-inside: avoid;
-        }
+#worksheet p,
+#worksheet li,
+#answer-key p,
+#answer-key li {
+  line-height: 1.8;
+  margin-bottom: 14px;
+}
 
+#worksheet ol,
+#worksheet ul {
+  padding-left: 28px;
+}
+
+#answer-key {
+  line-height: 1.8;
+}
+
+@media print {
+  body {
+    font-size: 12pt;
+    line-height: 1.8;
+  }
+
+  .question {
+    margin-bottom: 28px;
+    padding-bottom: 14px;
+  }
+
+  #worksheet p,
+  #worksheet li,
+  #answer-key p,
+  #answer-key li {
+    margin-bottom: 16px;
+  }
+}
         @media print {
           button {
             display: none !important;
