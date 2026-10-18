@@ -1302,6 +1302,37 @@ input, select, textarea, button {
 
   <div id="grade7-measurements-results" aria-live="polite"></div>
 </section>
+    
+<section id="grade7-geometry-section">
+  <h2>Grade 7 Mathematics: Geometry</h2>
+  <p>Practise geometry or take a test covering angles, triangles, polygons, constructions, symmetry and 3D shapes.</p>
+
+  <label for="grade7-geometry-mode">Choose quiz mode:</label>
+  <select id="grade7-geometry-mode">
+    <option value="practice">Practice Mode</option>
+    <option value="test">Test Mode</option>
+  </select>
+
+  <button class="button" type="button"
+          onclick="startGrade7GeometryQuiz()">
+    Start Geometry Quiz
+  </button>
+
+  <div id="grade7-geometry-quiz-area" hidden>
+    <p id="grade7-geometry-progress" aria-live="polite"></p>
+    <h3 id="grade7-geometry-question"></h3>
+    <div id="grade7-geometry-options"></div>
+    <p id="grade7-geometry-feedback" aria-live="polite"></p>
+
+    <button class="button" type="button"
+            id="grade7-geometry-next"
+            onclick="nextGrade7GeometryQuestion()" disabled>
+      Next Question
+    </button>
+  </div>
+
+  <div id="grade7-geometry-results" aria-live="polite"></div>
+</section>
 
       <!-- SMART WORKSHEET GENERATOR -->
 <section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
