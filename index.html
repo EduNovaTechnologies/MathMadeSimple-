@@ -2279,6 +2279,221 @@ function finishGrade7AlgebraQuiz() {
   document.getElementById("grade7-algebra-quiz-area").hidden = true;
   document.getElementById("grade7-algebra-next").disabled = true;
 }
+        
+const grade7MeasurementsQuestions = [
+  {
+    q: "A right-angled triangle has shorter sides of 3 cm and 4 cm. Find the hypotenuse.",
+    options: ["5 cm", "6 cm", "7 cm", "12 cm"],
+    answer: 0,
+    explanation: "Using Pythagoras: c² = 3² + 4² = 25, so c = 5 cm."
+  },
+  {
+    q: "A ladder reaches 12 m up a wall. Its base is 5 m from the wall. How long is the ladder?",
+    options: ["13 m", "15 m", "17 m", "7 m"],
+    answer: 0,
+    explanation: "The ladder is the hypotenuse: √(12² + 5²) = √169 = 13 m."
+  },
+  {
+    q: "Convert 3.5 metres to centimetres.",
+    options: ["35 cm", "350 cm", "3,500 cm", "0.35 cm"],
+    answer: 1,
+    explanation: "1 m = 100 cm, so 3.5 × 100 = 350 cm."
+  },
+  {
+    q: "A rectangle is 8 m long and 5 m wide. Find its perimeter.",
+    options: ["13 m", "26 m", "40 m", "20 m"],
+    answer: 1,
+    explanation: "Perimeter = 2 × (8 + 5) = 26 m."
+  },
+  {
+    q: "Find the area of a rectangle measuring 9 cm by 4 cm.",
+    options: ["13 cm²", "26 cm²", "36 cm²", "18 cm²"],
+    answer: 2,
+    explanation: "Area = length × width = 9 × 4 = 36 cm²."
+  },
+  {
+    q: "A circle has radius 7 cm. Using π = 22/7, find its area.",
+    options: ["44 cm²", "154 cm²", "308 cm²", "49 cm²"],
+    answer: 1,
+    explanation: "Area = πr² = 22/7 × 7 × 7 = 154 cm²."
+  },
+  {
+    q: "Find the volume of a cuboid measuring 5 cm by 3 cm by 2 cm.",
+    options: ["10 cm³", "15 cm³", "30 cm³", "20 cm³"],
+    answer: 2,
+    explanation: "Volume = length × width × height = 5 × 3 × 2 = 30 cm³."
+  },
+  {
+    q: "How many cubic centimetres are equal to 1 litre?",
+    options: ["100 cm³", "1,000 cm³", "10,000 cm³", "100,000 cm³"],
+    answer: 1,
+    explanation: "1 litre = 1,000 millilitres, and 1 mL = 1 cm³."
+  },
+  {
+    q: "A bus travels 150 km in 3 hours. Find its average speed.",
+    options: ["30 km/h", "45 km/h", "50 km/h", "75 km/h"],
+    answer: 2,
+    explanation: "Speed = distance ÷ time = 150 ÷ 3 = 50 km/h."
+  },
+  {
+    q: "Convert 2 hours 30 minutes into minutes.",
+    options: ["120 minutes", "130 minutes", "150 minutes", "230 minutes"],
+    answer: 2,
+    explanation: "2 hours = 120 minutes; 120 + 30 = 150 minutes."
+  },
+  {
+    q: "Convert 25°C to kelvin using K = °C + 273.",
+    options: ["248 K", "273 K", "298 K", "300 K"],
+    answer: 2,
+    explanation: "K = 25 + 273 = 298 K."
+  },
+  {
+    q: "Convert 300 K to degrees Celsius using °C = K − 273.",
+    options: ["27°C", "37°C", "300°C", "573°C"],
+    answer: 0,
+    explanation: "°C = 300 − 273 = 27°C."
+  },
+  {
+    q: "A shopkeeper buys a book for KSh 200 and sells it for KSh 250. Find the profit.",
+    options: ["KSh 25", "KSh 50", "KSh 200", "KSh 450"],
+    answer: 1,
+    explanation: "Profit = selling price − cost price = 250 − 200 = KSh 50."
+  },
+  {
+    q: "A bag costs KSh 1,000. A discount of 10% is offered. What is the new price?",
+    options: ["KSh 100", "KSh 900", "KSh 990", "KSh 1,100"],
+    answer: 1,
+    explanation: "Discount = 10% of 1,000 = KSh 100; new price = 1,000 − 100 = KSh 900."
+  },
+  {
+    q: "A right-angled triangle has a hypotenuse of 10 cm and one side of 6 cm. Find the other side.",
+    options: ["4 cm", "6 cm", "8 cm", "16 cm"],
+    answer: 2,
+    explanation: "Other side = √(10² − 6²) = √64 = 8 cm."
+  },
+  {
+    q: "A square has sides of 9 cm. Find its perimeter.",
+    options: ["18 cm", "36 cm", "81 cm", "27 cm"],
+    answer: 1,
+    explanation: "Perimeter = 4 × 9 = 36 cm."
+  },
+  {
+    q: "Convert 4.2 km to metres.",
+    options: ["42 m", "420 m", "4,200 m", "42,000 m"],
+    answer: 2,
+    explanation: "1 km = 1,000 m, so 4.2 km = 4,200 m."
+  },
+  {
+    q: "Convert 750 cm to metres.",
+    options: ["7.5 m", "75 m", "0.75 m", "750,000 m"],
+    answer: 0,
+    explanation: "750 ÷ 100 = 7.5 m."
+  },
+  {
+    q: "A rectangular field is 20 m long and 12 m wide. Find its area.",
+    options: ["32 m²", "64 m²", "240 m²", "120 m²"],
+    answer: 2,
+    explanation: "Area = 20 × 12 = 240 m²."
+  },
+  {
+    q: "Find the area of a triangle with base 10 cm and height 6 cm.",
+    options: ["60 cm²", "30 cm²", "16 cm²", "40 cm²"],
+    answer: 1,
+    explanation: "Area = ½ × 10 × 6 = 30 cm²."
+  },
+  {
+    q: "A cube has edges of 4 cm. Find its volume.",
+    options: ["16 cm³", "48 cm³", "64 cm³", "12 cm³"],
+    answer: 2,
+    explanation: "Volume = 4 × 4 × 4 = 64 cm³."
+  },
+  {
+    q: "Convert 2.5 litres to millilitres.",
+    options: ["25 mL", "250 mL", "2,500 mL", "25,000 mL"],
+    answer: 2,
+    explanation: "1 litre = 1,000 mL, so 2.5 litres = 2,500 mL."
+  },
+  {
+    q: "A car travels 240 km at 60 km/h. How long does the journey take?",
+    options: ["2 hours", "3 hours", "4 hours", "5 hours"],
+    answer: 2,
+    explanation: "Time = distance ÷ speed = 240 ÷ 60 = 4 hours."
+  },
+  {
+    q: "A cyclist travels at 12 km/h for 2.5 hours. Find the distance covered.",
+    options: ["14.5 km", "24 km", "30 km", "36 km"],
+    answer: 2,
+    explanation: "Distance = speed × time = 12 × 2.5 = 30 km."
+  },
+  {
+    q: "A lesson starts at 8:15 a.m. and ends at 10:05 a.m. How long is it?",
+    options: ["1 hour 40 minutes", "1 hour 50 minutes", "2 hours 10 minutes", "2 hours"],
+    answer: 1,
+    explanation: "From 8:15 to 10:05 is 1 hour 50 minutes."
+  },
+  {
+    q: "Convert 35°C to kelvin using K = °C + 273.",
+    options: ["238 K", "273 K", "308 K", "335 K"],
+    answer: 2,
+    explanation: "K = 35 + 273 = 308 K."
+  },
+  {
+    q: "Convert 290 K to degrees Celsius using °C = K − 273.",
+    options: ["17°C", "27°C", "290°C", "563°C"],
+    answer: 0,
+    explanation: "°C = 290 − 273 = 17°C."
+  },
+  {
+    q: "The temperature rises from 18°C to 31°C. Find the increase.",
+    options: ["11°C", "13°C", "18°C", "49°C"],
+    answer: 1,
+    explanation: "Increase = 31 − 18 = 13°C."
+  },
+  {
+    q: "A trader buys an item for KSh 800 and sells it for KSh 720. Find the loss.",
+    options: ["KSh 80", "KSh 100", "KSh 720", "KSh 1,520"],
+    answer: 0,
+    explanation: "Loss = cost price − selling price = 800 − 720 = KSh 80."
+  },
+  {
+    q: "Find 15% of KSh 2,000.",
+    options: ["KSh 150", "KSh 200", "KSh 300", "KSh 500"],
+    answer: 2,
+    explanation: "15% of 2,000 = 15/100 × 2,000 = KSh 300."
+  },
+  {
+    q: "A worker earns a commission of 5% on sales of KSh 10,000. Find the commission.",
+    options: ["KSh 50", "KSh 500", "KSh 1,000", "KSh 5,000"],
+    answer: 1,
+    explanation: "Commission = 5/100 × 10,000 = KSh 500."
+  },
+  {
+    q: "A customer buys goods worth KSh 650 and pays KSh 1,000. Find the change.",
+    options: ["KSh 250", "KSh 300", "KSh 350", "KSh 450"],
+    answer: 2,
+    explanation: "Change = 1,000 − 650 = KSh 350."
+  },
+  {
+    q: "A rectangular tank measures 2 m by 1 m by 1 m. What is its volume?",
+    options: ["2 m³", "3 m³", "4 m³", "1 m³"],
+    answer: 0,
+    explanation: "Volume = 2 × 1 × 1 = 2 m³."
+  },
+  {
+    q: "A square has a side of 12 cm. Find its area.",
+    options: ["24 cm²", "48 cm²", "144 cm²", "120 cm²"],
+    answer: 2,
+    explanation: "Area = side × side = 12 × 12 = 144 cm²."
+  },
+  {
+    q: "A bus leaves at 9:40 a.m. and arrives at 12:10 p.m. How long is the journey?",
+    options: ["2 hours 20 minutes", "2 hours 30 minutes", "3 hours 30 minutes", "1 hour 30 minutes"],
+    answer: 1,
+    explanation: "From 9:40 a.m. to 12:10 p.m. is 2 hours 30 minutes."
+  }
+];
+
+
           </script>
   
 <script>
