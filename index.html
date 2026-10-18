@@ -1271,6 +1271,38 @@ input, select, textarea, button {
          aria-live="polite"></div>
   </div>
 </section>
+    
+<section id="grade7-measurements-section">
+  <h2>Grade 7 Mathematics: Measurements</h2>
+  <p>Practise measurements or take a test covering all seven sub-strands.</p>
+
+  <label for="grade7-measurements-mode">Choose quiz mode:</label>
+  <select id="grade7-measurements-mode">
+    <option value="practice">Practice Mode</option>
+    <option value="test">Test Mode</option>
+  </select>
+
+  <button class="button" type="button"
+          onclick="startGrade7MeasurementsQuiz()">
+    Start Measurements Quiz
+  </button>
+
+  <div id="grade7-measurements-quiz-area" hidden>
+    <p id="grade7-measurements-progress" aria-live="polite"></p>
+    <h3 id="grade7-measurements-question"></h3>
+    <div id="grade7-measurements-options"></div>
+    <p id="grade7-measurements-feedback" aria-live="polite"></p>
+
+    <button class="button" type="button"
+            id="grade7-measurements-next"
+            onclick="nextGrade7MeasurementsQuestion()" disabled>
+      Next Question
+    </button>
+  </div>
+
+  <div id="grade7-measurements-results" aria-live="polite"></div>
+</section>
+
       <!-- SMART WORKSHEET GENERATOR -->
 <section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
   <h2 style="text-align:center;">Smart Worksheet Generator</h2>
@@ -2494,8 +2526,164 @@ const grade7MeasurementsQuestions = [
     explanation: "From 9:40 a.m. to 12:10 p.m. is 2 hours 30 minutes."
   }
 ];
+    
+let grade7MeasurementsIndex = 0;
+let grade7MeasurementsScore = 0;
+let grade7MeasurementsAnswered = false;
+let grade7MeasurementsUserAnswers = [];
+let grade7MeasurementsMode = "practice";
 
+function startGrade7MeasurementsQuiz() {
+  if (grade7MeasurementsQuestions.length !== 35) {
+    alert("The Measurements quiz should contain 35 questions. Please check the questions array.");
+    return;
+  }
 
+  grade7MeasurementsIndex = 0;
+  grade7MeasurementsScore = 0;
+  grade7MeasurementsAnswered = false;
+  grade7MeasurementsUserAnswers = [];
+
+  grade7MeasurementsMode =
+    document.getElementById("grade7-measurements-mode").value;
+
+  document.getElementById("grade7-measurements-results").innerHTML = "";
+  document.getElementById("grade7-measurements-quiz-area").hidden = false;
+
+  showGrade7MeasurementsQuestion();
+}
+
+function showGrade7MeasurementsQuestion() {
+  const question = grade7MeasurementsQuestions[grade7MeasurementsIndex];
+
+  document.getElementById("grade7-measurements-progress").textContent =
+    "Question " + (grade7MeasurementsIndex + 1) +
+    " of " + grade7MeasurementsQuestions.length;
+
+  document.getElementById("grade7-measurements-question").textContent =
+    question.q;
+
+  document.getElementById("grade7-measurements-feedback").textContent = "";
+
+  const optionsArea =
+    document.getElementById("grade7-measurements-options");
+
+  optionsArea.innerHTML = "";
+
+  question.options.forEach(function(option, index) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    button.textContent = option;
+    button.style.display = "block";
+    button.style.margin = "8px 0";
+    button.style.width = "100%";
+
+    button.onclick = function() {
+      answerGrade7MeasurementsQuestion(index);
+    };
+
+    optionsArea.appendChild(button);
+  });
+
+  grade7MeasurementsAnswered = false;
+
+  const nextButton =
+    document.getElementById("grade7-measurements-next");
+
+  nextButton.disabled = true;
+  nextButton.textContent =
+    grade7MeasurementsIndex === grade7MeasurementsQuestions.length - 1
+      ? "See Results"
+      : "Next Question";
+}
+
+function answerGrade7MeasurementsQuestion(selectedIndex) {
+  if (grade7MeasurementsAnswered) return;
+
+  grade7MeasurementsAnswered = true;
+
+  const question = grade7MeasurementsQuestions[grade7MeasurementsIndex];
+  const correct = selectedIndex === question.answer;
+
+  if (correct) {
+    grade7MeasurementsScore++;
+  }
+
+  grade7MeasurementsUserAnswers.push({
+    question: question.q,
+    selected: question.options[selectedIndex],
+    correctAnswer: question.options[question.answer],
+    isCorrect: correct,
+    explanation: question.explanation
+  });
+
+  const buttons =
+    document.getElementById("grade7-measurements-options").children;
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true;
+  }
+
+  if (grade7MeasurementsMode === "practice") {
+    document.getElementById("grade7-measurements-feedback").textContent =
+      (correct ? "Correct! " : "Not quite. Correct answer: " +
+      question.options[question.answer] + ". ") +
+      question.explanation;
+  }
+
+  document.getElementById("grade7-measurements-next").disabled = false;
+}
+
+function nextGrade7MeasurementsQuestion() {
+  if (!grade7MeasurementsAnswered) return;
+
+  if (grade7MeasurementsIndex <
+      grade7MeasurementsQuestions.length - 1) {
+    grade7MeasurementsIndex++;
+    showGrade7MeasurementsQuestion();
+  } else {
+    finishGrade7MeasurementsQuiz();
+  }
+}
+
+function finishGrade7MeasurementsQuiz() {
+  document.getElementById("grade7-measurements-quiz-area").hidden = true;
+
+  const total = grade7MeasurementsQuestions.length;
+  const percentage = Math.round(
+    (grade7MeasurementsScore / total) * 100
+  );
+
+  let review = "";
+
+  if (grade7MeasurementsMode === "test") {
+    review = "<h3>Review your answers</h3>";
+
+    grade7MeasurementsUserAnswers.forEach(function(item, index) {
+      review += "<p><strong>Q" + (index + 1) + ": " +
+        (item.isCorrect ? "Correct" : "Incorrect") +
+        "</strong><br>" +
+        item.question +
+        "<br>Your answer: " + item.selected +
+        "<br>Correct answer: " + item.correctAnswer +
+        "<br>" + item.explanation + "</p>";
+    });
+  }
+
+  document.getElementById("grade7-measurements-results").innerHTML =
+    "<h3>Measurements Quiz Results</h3>" +
+    "<p>You scored <strong>" + grade7MeasurementsScore +
+    " out of " + total + "</strong> (" + percentage + "%).</p>" +
+    "<p>" +
+    (percentage >= 80 ? "Excellent work! Keep it up." :
+     percentage >= 50 ? "Good effort! Review the questions you missed." :
+     "Keep practising and review the explanations.") +
+    "</p>" +
+    review;
+
+  document.getElementById("grade7-measurements-next").disabled = true;
+}
           </script>
   
 <script>
