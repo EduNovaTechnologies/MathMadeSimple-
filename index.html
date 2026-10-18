@@ -2930,7 +2930,165 @@ const grade7GeometryQuestions = [
     explanation: "A cylinder has two circular flat faces and one curved surface."
   }
 ];
+    
+let grade7GeometryIndex = 0;
+let grade7GeometryScore = 0;
+let grade7GeometryAnswered = false;
+let grade7GeometryUserAnswers = [];
+let grade7GeometryMode = "practice";
 
+function startGrade7GeometryQuiz() {
+  if (grade7GeometryQuestions.length !== 35) {
+    alert("Please check that the Geometry quiz contains 35 questions.");
+    return;
+  }
+
+  grade7GeometryIndex = 0;
+  grade7GeometryScore = 0;
+  grade7GeometryAnswered = false;
+  grade7GeometryUserAnswers = [];
+
+  grade7GeometryMode =
+    document.getElementById("grade7-geometry-mode").value;
+
+  document.getElementById("grade7-geometry-results").innerHTML = "";
+  document.getElementById("grade7-geometry-quiz-area").hidden = false;
+
+  showGrade7GeometryQuestion();
+}
+
+function showGrade7GeometryQuestion() {
+  const question = grade7GeometryQuestions[grade7GeometryIndex];
+
+  document.getElementById("grade7-geometry-progress").textContent =
+    "Question " + (grade7GeometryIndex + 1) + " of 35";
+
+  document.getElementById("grade7-geometry-question").textContent =
+    question.q;
+
+  document.getElementById("grade7-geometry-feedback").textContent = "";
+
+  const optionsArea =
+    document.getElementById("grade7-geometry-options");
+
+  optionsArea.innerHTML = "";
+
+  question.options.forEach(function(option, index) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    button.textContent = option;
+    button.style.display = "block";
+    button.style.margin = "8px 0";
+    button.style.width = "100%";
+
+    button.onclick = function() {
+      answerGrade7GeometryQuestion(index);
+    };
+
+    optionsArea.appendChild(button);
+  });
+
+  grade7GeometryAnswered = false;
+
+  const nextButton =
+    document.getElementById("grade7-geometry-next");
+
+  nextButton.disabled = true;
+  nextButton.textContent =
+    grade7GeometryIndex === 34 ? "See Results" : "Next Question";
+}
+
+function answerGrade7GeometryQuestion(selectedIndex) {
+  if (grade7GeometryAnswered) return;
+
+  grade7GeometryAnswered = true;
+
+  const question = grade7GeometryQuestions[grade7GeometryIndex];
+  const correct = selectedIndex === question.answer;
+
+  if (correct) {
+    grade7GeometryScore++;
+  }
+
+  grade7GeometryUserAnswers.push({
+    question: question.q,
+    selected: question.options[selectedIndex],
+    correctAnswer: question.options[question.answer],
+    isCorrect: correct,
+    explanation: question.explanation
+  });
+
+  const buttons =
+    document.getElementById("grade7-geometry-options").children;
+
+  for (let i = 0; i < buttons.length; i++) {
+    buttons[i].disabled = true;
+  }
+
+  if (grade7GeometryMode === "practice") {
+    document.getElementById("grade7-geometry-feedback").textContent =
+      (correct
+        ? "Correct! "
+        : "Not quite. Correct answer: " +
+          question.options[question.answer] + ". ") +
+      question.explanation;
+  }
+
+  document.getElementById("grade7-geometry-next").disabled = false;
+}
+
+function nextGrade7GeometryQuestion() {
+  if (!grade7GeometryAnswered) return;
+
+  if (grade7GeometryIndex < 34) {
+    grade7GeometryIndex++;
+    showGrade7GeometryQuestion();
+  } else {
+    finishGrade7GeometryQuiz();
+  }
+}
+
+function finishGrade7GeometryQuiz() {
+  document.getElementById("grade7-geometry-quiz-area").hidden = true;
+
+  const total = grade7GeometryQuestions.length;
+  const percentage = Math.round(
+    (grade7GeometryScore / total) * 100
+  );
+
+  let review = "";
+
+  if (grade7GeometryMode === "test") {
+    review = "<h3>Review your answers</h3>";
+
+    grade7GeometryUserAnswers.forEach(function(item, index) {
+      review +=
+        "<p><strong>Question " + (index + 1) + ": " +
+        (item.isCorrect ? "Correct" : "Incorrect") +
+        "</strong><br>" +
+        item.question +
+        "<br>Your answer: " + item.selected +
+        "<br>Correct answer: " + item.correctAnswer +
+        "<br>" + item.explanation + "</p>";
+    });
+  }
+
+  document.getElementById("grade7-geometry-results").innerHTML =
+    "<h3>Geometry Quiz Results</h3>" +
+    "<p>Your score: <strong>" + grade7GeometryScore +
+    " out of " + total + "</strong> (" + percentage + "%).</p>" +
+    "<p>" +
+    (percentage >= 80
+      ? "Excellent work! Keep it up."
+      : percentage >= 50
+        ? "Good effort! Review the questions you missed."
+        : "Keep practising and review the explanations.") +
+    "</p>" +
+    review;
+
+  document.getElementById("grade7-geometry-next").disabled = true;
+}
         </script>
   
 <script>
