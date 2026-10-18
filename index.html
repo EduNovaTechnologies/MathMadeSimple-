@@ -3090,6 +3090,221 @@ function finishGrade7GeometryQuiz() {
   document.getElementById("grade7-geometry-next").disabled = true;
 }
         </script>
+  <script>
+    
+const grade7DataHandlingQuestions = [
+  {
+    q: "What is data?",
+    options: ["Information collected for a purpose", "A type of angle", "A measuring instrument", "A geometric shape"],
+    answer: 0,
+    explanation: "Data is information collected for analysis or to answer questions."
+  },
+  {
+    q: "Which is an example of numerical data?",
+    options: ["Favourite colour", "Type of fruit", "Number of learners", "Name of a school"],
+    answer: 2,
+    explanation: "The number of learners is numerical because it is expressed as a number."
+  },
+  {
+    q: "Which method can be used to collect information from learners?",
+    options: ["Survey", "Compass construction", "Rotation", "Measurement of angles only"],
+    answer: 0,
+    explanation: "A survey asks people questions to collect information."
+  },
+  {
+    q: "What is the main purpose of a tally chart?",
+    options: ["To draw circles", "To record counts quickly", "To calculate area", "To measure temperature"],
+    answer: 1,
+    explanation: "Tally marks help record and count observations efficiently."
+  },
+  {
+    q: "How many tally marks represent 8 observations?",
+    options: ["Five and three more", "Two groups of five", "Four groups of three", "One group of five and one more"],
+    answer: 0,
+    explanation: "Eight tally marks are recorded as a group of five and three additional marks."
+  },
+  {
+    q: "What does frequency mean in a data table?",
+    options: ["The number of times a value occurs", "The largest value only", "The difference between two values", "The title of a graph"],
+    answer: 0,
+    explanation: "Frequency tells how many times a value or category appears."
+  },
+  {
+    q: "The scores are 2, 3, 3, 4, 3. What is the frequency of 3?",
+    options: ["1", "2", "3", "5"],
+    answer: 2,
+    explanation: "The value 3 appears three times."
+  },
+  {
+    q: "A class has 12 boys and 18 girls. How many learners are there?",
+    options: ["6", "24", "30", "36"],
+    answer: 2,
+    explanation: "Total learners = 12 + 18 = 30."
+  },
+  {
+    q: "A table records 7 learners choosing football and 9 choosing netball. How many chose either sport?",
+    options: ["2", "9", "16", "63"],
+    answer: 2,
+    explanation: "Total = 7 + 9 = 16 learners."
+  },
+  {
+    q: "Which graph is commonly used to compare separate categories?",
+    options: ["Bar graph", "Number line only", "Angle bisector", "Circle construction"],
+    answer: 0,
+    explanation: "A bar graph compares values across different categories."
+  },
+  {
+    q: "In a bar graph, what does the height of each bar represent?",
+    options: ["The category name", "The frequency or value", "The colour of the page", "The graph's title"],
+    answer: 1,
+    explanation: "The height shows the value or frequency represented by the bar."
+  },
+  {
+    q: "A bar graph shows 5 learners like mangoes and 8 like oranges. How many more like oranges?",
+    options: ["2", "3", "5", "13"],
+    answer: 1,
+    explanation: "Difference = 8 − 5 = 3 learners."
+  },
+  {
+    q: "What should a graph title tell the reader?",
+    options: ["What the data is about", "Only the author's name", "The colour of the bars", "The page number only"],
+    answer: 0,
+    explanation: "A clear title describes the subject of the graph."
+  },
+  {
+    q: "A pictograph uses one symbol to represent 4 learners. What do 3 symbols represent?",
+    options: ["7 learners", "8 learners", "12 learners", "16 learners"],
+    answer: 2,
+    explanation: "3 × 4 = 12 learners."
+  },
+  {
+    q: "If one picture represents 5 books, how many books do 6 pictures represent?",
+    options: ["11", "25", "30", "35"],
+    answer: 2,
+    explanation: "6 × 5 = 30 books."
+  },
+  {
+    q: "Why is a key important in a pictograph?",
+    options: ["It explains what each symbol represents", "It replaces the data", "It gives the mean automatically", "It removes the title"],
+    answer: 0,
+    explanation: "The key tells the reader the value of each picture or symbol."
+  },
+  {
+    q: "What fraction of a full circle is 180°?",
+    options: ["1/4", "1/3", "1/2", "3/4"],
+    answer: 2,
+    explanation: "180° ÷ 360° = 1/2."
+  },
+  {
+    q: "A sector of a pie chart is 90°. What fraction of the circle is it?",
+    options: ["1/2", "1/3", "1/4", "3/4"],
+    answer: 2,
+    explanation: "90° ÷ 360° = 1/4."
+  },
+  {
+    q: "A pie chart represents 40 learners. A sector represents one quarter of the class. How many learners is that?",
+    options: ["5", "10", "20", "30"],
+    answer: 1,
+    explanation: "40 ÷ 4 = 10 learners."
+  },
+  {
+    q: "What is the sum of all sector angles in a complete pie chart?",
+    options: ["90°", "180°", "270°", "360°"],
+    answer: 3,
+    explanation: "A complete circle contains 360°."
+  },
+  {
+    q: "Find the mean of 2, 4 and 6.",
+    options: ["3", "4", "5", "12"],
+    answer: 1,
+    explanation: "Mean = (2 + 4 + 6) ÷ 3 = 4."
+  },
+  {
+    q: "Find the mean of 5, 7, 8 and 10.",
+    options: ["7", "7.5", "8", "30"],
+    answer: 1,
+    explanation: "Mean = (5 + 7 + 8 + 10) ÷ 4 = 30 ÷ 4 = 7.5."
+  },
+  {
+    q: "Find the median of 2, 4, 6, 8, 10.",
+    options: ["4", "6", "8", "10"],
+    answer: 1,
+    explanation: "The middle value of the ordered list is 6."
+  },
+  {
+    q: "Find the median of 3, 5, 7, 9.",
+    options: ["5", "6", "7", "8"],
+    answer: 1,
+    explanation: "The median is the mean of the middle values: (5 + 7) ÷ 2 = 6."
+  },
+  {
+    q: "Find the mode of 2, 3, 3, 4, 5.",
+    options: ["2", "3", "4", "5"],
+    answer: 1,
+    explanation: "The mode is the value that occurs most often; 3 occurs twice."
+  },
+  {
+    q: "Find the range of 4, 9, 2, 7, 10.",
+    options: ["6", "7", "8", "10"],
+    answer: 2,
+    explanation: "Range = largest − smallest = 10 − 2 = 8."
+  },
+  {
+    q: "The scores are 6, 6, 8, 10. What is the mode?",
+    options: ["6", "7", "8", "10"],
+    answer: 0,
+    explanation: "The score 6 occurs twice, more than any other score."
+  },
+  {
+    q: "What is the mean of 10, 20 and 30?",
+    options: ["10", "15", "20", "60"],
+    answer: 2,
+    explanation: "Mean = (10 + 20 + 30) ÷ 3 = 20."
+  },
+  {
+    q: "The mean of 4 numbers is 6. What is their total?",
+    options: ["10", "18", "24", "30"],
+    answer: 2,
+    explanation: "Total = mean × number of values = 6 × 4 = 24."
+  },
+  {
+    q: "A learner scored 8, 10 and 12 marks. What is the range?",
+    options: ["2", "4", "10", "30"],
+    answer: 1,
+    explanation: "Range = 12 − 8 = 4 marks."
+  },
+  {
+    q: "A table shows 4, 6 and 9 learners choosing three activities. Which activity is most popular?",
+    options: ["The activity chosen by 4", "The activity chosen by 6", "The activity chosen by 9", "All are equally popular"],
+    answer: 2,
+    explanation: "The greatest frequency is 9."
+  },
+  {
+    q: "A class has 20 learners. Five are absent. How many are present?",
+    options: ["5", "15", "20", "25"],
+    answer: 1,
+    explanation: "Present learners = 20 − 5 = 15."
+  },
+  {
+    q: "A survey finds 12 learners prefer tea and 8 prefer juice. What percentage prefer tea?",
+    options: ["40%", "50%", "60%", "80%"],
+    answer: 2,
+    explanation: "12 out of 20 = 12 ÷ 20 × 100 = 60%."
+  },
+  {
+    q: "Which measure is the middle value of an ordered data set?",
+    options: ["Mean", "Median", "Mode", "Range"],
+    answer: 1,
+    explanation: "The median is the middle value after arranging the data in order."
+  },
+  {
+    q: "Why should data be organised in a table or graph?",
+    options: ["To make patterns and comparisons easier to see", "To change every value", "To guarantee the data is correct", "To remove all differences"],
+    answer: 0,
+    explanation: "Organising data helps people read, compare and interpret information."
+  }
+];
+     </script>
   
 <script>
 const worksheetQuestionBank = {
