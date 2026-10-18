@@ -1333,6 +1333,37 @@ input, select, textarea, button {
 
   <div id="grade7-geometry-results" aria-live="polite"></div>
 </section>
+    
+<section id="grade7-data-handling-section">
+  <h2>Grade 7 Mathematics: Data Handling</h2>
+  <p>Practise collecting, organising, displaying and interpreting data.</p>
+
+  <label for="grade7-data-handling-mode">Choose quiz mode:</label>
+  <select id="grade7-data-handling-mode">
+    <option value="practice">Practice Mode</option>
+    <option value="test">Test Mode</option>
+  </select>
+
+  <button class="button" type="button"
+          onclick="startGrade7DataHandlingQuiz()">
+    Start Data Handling Quiz
+  </button>
+
+  <div id="grade7-data-handling-quiz-area" hidden>
+    <p id="grade7-data-handling-progress" aria-live="polite"></p>
+    <h3 id="grade7-data-handling-question"></h3>
+    <div id="grade7-data-handling-options"></div>
+    <p id="grade7-data-handling-feedback" aria-live="polite"></p>
+
+    <button class="button" type="button"
+            id="grade7-data-handling-next"
+            onclick="nextGrade7DataHandlingQuestion()" disabled>
+      Next Question
+    </button>
+  </div>
+
+  <div id="grade7-data-handling-results" aria-live="polite"></div>
+</section>
 
       <!-- SMART WORKSHEET GENERATOR -->
 <section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
