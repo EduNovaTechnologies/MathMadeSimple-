@@ -1218,6 +1218,59 @@ input, select, textarea, button {
   </div>
 
 </section>
+    
+<!-- GRADE 7 ALGEBRA STRAND QUIZ -->
+<section class="section" id="grade7-algebra">
+  <h2 class="section-heading">
+    Grade 7 Mathematics: Algebra Strand
+  </h2>
+
+  <p class="section-intro">
+    Practise Algebraic Expressions, Linear Equations
+    and Linear Inequalities.
+  </p>
+
+  <div class="card">
+    <h3>Choose your quiz mode</h3>
+
+    <label for="grade7-algebra-mode">Quiz mode</label>
+    <select id="grade7-algebra-mode">
+      <option value="practice">Practice Mode</option>
+      <option value="test">Test Mode</option>
+    </select>
+
+    <p class="muted">
+      This quiz contains 25 questions, including
+      five real-life application questions.
+    </p>
+
+    <button class="button" type="button"
+            onclick="startGrade7AlgebraQuiz()">
+      Start Grade 7 Algebra Quiz
+    </button>
+
+    <div id="grade7-algebra-quiz-area" hidden>
+      <p id="grade7-algebra-progress"
+         aria-live="polite"></p>
+
+      <h3 id="grade7-algebra-question"></h3>
+
+      <div id="grade7-algebra-options"></div>
+
+      <p id="grade7-algebra-feedback"
+         aria-live="polite"></p>
+
+      <button class="button" type="button"
+              id="grade7-algebra-next"
+              onclick="nextGrade7AlgebraQuestion()">
+        Next Question
+      </button>
+    </div>
+
+    <div id="grade7-algebra-results"
+         aria-live="polite"></div>
+  </div>
+</section>
       <!-- SMART WORKSHEET GENERATOR -->
 <section id="worksheet-generator" style="padding:20px; margin:20px auto; max-width:800px; background:#f4f7fb; border-radius:12px; color:#222;">
   <h2 style="text-align:center;">Smart Worksheet Generator</h2>
