@@ -2685,6 +2685,222 @@ function finishGrade7MeasurementsQuiz() {
   document.getElementById("grade7-measurements-next").disabled = true;
 }
           </script>
+  <script>
+        
+const grade7GeometryQuestions = [
+  {
+    q: "What is the sum of angles on a straight line?",
+    options: ["90°", "180°", "270°", "360°"],
+    answer: 1,
+    explanation: "Angles on a straight line add up to 180°."
+  },
+  {
+    q: "An angle measures 35°. Find its complement.",
+    options: ["45°", "55°", "65°", "145°"],
+    answer: 1,
+    explanation: "90° − 35° = 55°."
+  },
+  {
+    q: "Two angles on a straight line are x° and 120°. Find x.",
+    options: ["40°", "50°", "60°", "70°"],
+    answer: 2,
+    explanation: "x + 120° = 180°, so x = 60°."
+  },
+  {
+    q: "How many sides does a hexagon have?",
+    options: ["5", "6", "7", "8"],
+    answer: 1,
+    explanation: "A hexagon has six sides."
+  },
+  {
+    q: "What is the sum of the interior angles of a triangle?",
+    options: ["90°", "180°", "270°", "360°"],
+    answer: 1,
+    explanation: "The interior angles of a triangle add up to 180°."
+  },
+  {
+    q: "An angle of 125° is classified as what type?",
+    options: ["Acute", "Right", "Obtuse", "Reflex"],
+    answer: 2,
+    explanation: "An obtuse angle is greater than 90° but less than 180°."
+  },
+  {
+    q: "Two vertically opposite angles are formed. One is 72°. Find the other.",
+    options: ["18°", "72°", "108°", "288°"],
+    answer: 1,
+    explanation: "Vertically opposite angles are equal."
+  },
+  {
+    q: "Two complementary angles are in the ratio 2:1. Find the larger angle.",
+    options: ["30°", "45°", "60°", "120°"],
+    answer: 2,
+    explanation: "Three equal parts make 90°, so each part is 30°. The larger angle is 60°."
+  },
+  {
+    q: "One angle at an intersection is 110°. Find its adjacent angle on a straight line.",
+    options: ["70°", "90°", "110°", "250°"],
+    answer: 0,
+    explanation: "Adjacent angles on a straight line add to 180°: 180° − 110° = 70°."
+  },
+  {
+    q: "When parallel lines are crossed by a transversal, corresponding angles are:",
+    options: ["Always unequal", "Equal", "Always 90°", "Always 180°"],
+    answer: 1,
+    explanation: "Corresponding angles are equal when the lines are parallel."
+  },
+  {
+    q: "A triangle has angles 50° and 60°. Find its third angle.",
+    options: ["60°", "70°", "80°", "90°"],
+    answer: 1,
+    explanation: "180° − 50° − 60° = 70°."
+  },
+  {
+    q: "A triangle with all three sides equal is called:",
+    options: ["Scalene", "Isosceles", "Equilateral", "Right-angled"],
+    answer: 2,
+    explanation: "An equilateral triangle has three equal sides."
+  },
+  {
+    q: "A triangle has sides 5 cm, 5 cm and 8 cm. What type is it by sides?",
+    options: ["Equilateral", "Isosceles", "Scalene", "Right-angled"],
+    answer: 1,
+    explanation: "An isosceles triangle has two equal sides."
+  },
+  {
+    q: "Which triangle has one angle equal to 90°?",
+    options: ["Acute triangle", "Obtuse triangle", "Right-angled triangle", "Equilateral triangle"],
+    answer: 2,
+    explanation: "A right-angled triangle has one right angle."
+  },
+  {
+    q: "A triangle has angles 2x°, 3x° and 4x°. Find x.",
+    options: ["15°", "20°", "30°", "45°"],
+    answer: 1,
+    explanation: "9x = 180°, so x = 20°."
+  },
+  {
+    q: "How many diagonals does a quadrilateral have?",
+    options: ["1", "2", "3", "4"],
+    answer: 1,
+    explanation: "A quadrilateral has two diagonals joining opposite vertices."
+  },
+  {
+    q: "Which quadrilateral has four equal sides and four right angles?",
+    options: ["Rectangle", "Rhombus", "Square", "Trapezium"],
+    answer: 2,
+    explanation: "A square has four equal sides and four right angles."
+  },
+  {
+    q: "A rectangle has length 9 cm and width 4 cm. What is its perimeter?",
+    options: ["13 cm", "26 cm", "36 cm", "18 cm"],
+    answer: 1,
+    explanation: "Perimeter = 2 × (9 + 4) = 26 cm."
+  },
+  {
+    q: "Which quadrilateral has exactly one pair of parallel sides in the usual school definition?",
+    options: ["Square", "Rectangle", "Trapezium", "Rhombus"],
+    answer: 2,
+    explanation: "A trapezium has one pair of parallel sides under this definition."
+  },
+  {
+    q: "What is the sum of the interior angles of a quadrilateral?",
+    options: ["180°", "270°", "360°", "540°"],
+    answer: 2,
+    explanation: "The interior angles of a quadrilateral add up to 360°."
+  },
+  {
+    q: "How many sides does a pentagon have?",
+    options: ["4", "5", "6", "7"],
+    answer: 1,
+    explanation: "A pentagon has five sides."
+  },
+  {
+    q: "What is the sum of the interior angles of a pentagon?",
+    options: ["360°", "450°", "540°", "720°"],
+    answer: 2,
+    explanation: "Sum = (5 − 2) × 180° = 540°."
+  },
+  {
+    q: "What instrument is commonly used to draw a circle?",
+    options: ["Ruler", "Compass", "Protractor", "Set square"],
+    answer: 1,
+    explanation: "A compass is used to draw circles and arcs."
+  },
+  {
+    q: "Which instrument is used to measure an angle in degrees?",
+    options: ["Compass", "Ruler", "Protractor", "Divider"],
+    answer: 2,
+    explanation: "A protractor measures angles in degrees."
+  },
+  {
+    q: "To construct the perpendicular bisector of a line segment, which pair of tools is commonly used?",
+    options: ["Compass and ruler", "Protractor and calculator", "Set square and calculator", "Tape measure and clock"],
+    answer: 0,
+    explanation: "A compass draws equal-radius arcs and a ruler joins their intersections."
+  },
+  {
+    q: "A perpendicular line meets another line at what angle?",
+    options: ["45°", "60°", "90°", "180°"],
+    answer: 2,
+    explanation: "Perpendicular lines meet at right angles of 90°."
+  },
+  {
+    q: "A shape has one line of symmetry. What does this mean?",
+    options: ["It has one side", "It can be folded into matching halves along one line", "All sides are equal", "All angles are right angles"],
+    answer: 1,
+    explanation: "A line of symmetry divides a shape into two matching mirror halves."
+  },
+  {
+    q: "How many lines of symmetry does a non-square rectangle have?",
+    options: ["0", "1", "2", "4"],
+    answer: 2,
+    explanation: "A non-square rectangle has two lines of symmetry through its centre."
+  },
+  {
+    q: "A square has how many lines of symmetry?",
+    options: ["1", "2", "3", "4"],
+    answer: 3,
+    explanation: "A square has four lines of symmetry."
+  },
+  {
+    q: "A translation moves a shape by:",
+    options: ["Turning it around a point", "Sliding it without turning or reflecting it", "Flipping it over a line", "Changing its size"],
+    answer: 1,
+    explanation: "Translation slides every point the same distance in the same direction."
+  },
+  {
+    q: "Which transformation turns a shape around a fixed point?",
+    options: ["Translation", "Reflection", "Rotation", "Enlargement"],
+    answer: 2,
+    explanation: "Rotation turns a shape around a fixed point through a specified angle."
+  },
+  {
+    q: "Which transformation produces a mirror image across a line?",
+    options: ["Reflection", "Translation", "Rotation", "Tessellation"],
+    answer: 0,
+    explanation: "Reflection flips a shape across a mirror line."
+  },
+  {
+    q: "How many faces does a cube have?",
+    options: ["4", "6", "8", "12"],
+    answer: 1,
+    explanation: "A cube has six square faces."
+  },
+  {
+    q: "How many vertices does a cuboid have?",
+    options: ["6", "8", "10", "12"],
+    answer: 1,
+    explanation: "A cuboid has eight vertices."
+  },
+  {
+    q: "Which 3D shape has two circular faces and one curved surface?",
+    options: ["Sphere", "Cone", "Cylinder", "Cube"],
+    answer: 2,
+    explanation: "A cylinder has two circular flat faces and one curved surface."
+  }
+];
+
+        </script>
   
 <script>
 const worksheetQuestionBank = {
