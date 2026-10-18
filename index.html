@@ -3335,6 +3335,164 @@ const grade7DataHandlingQuestions = [
     explanation: "Organising data helps people read, compare and interpret information."
   }
 ];
+    
+let grade7DataHandlingIndex = 0;
+let grade7DataHandlingScore = 0;
+let grade7DataHandlingAnswered = false;
+let grade7DataHandlingUserAnswers = [];
+let grade7DataHandlingMode = "practice";
+
+function startGrade7DataHandlingQuiz() {
+  if (grade7DataHandlingQuestions.length !== 35) {
+    alert("The Data Handling quiz should contain 35 questions.");
+    return;
+  }
+
+  grade7DataHandlingIndex = 0;
+  grade7DataHandlingScore = 0;
+  grade7DataHandlingAnswered = false;
+  grade7DataHandlingUserAnswers = [];
+
+  grade7DataHandlingMode =
+    document.getElementById("grade7-data-handling-mode").value;
+
+  document.getElementById("grade7-data-handling-results").innerHTML = "";
+  document.getElementById("grade7-data-handling-quiz-area").hidden = false;
+
+  showGrade7DataHandlingQuestion();
+}
+
+function showGrade7DataHandlingQuestion() {
+  const q = grade7DataHandlingQuestions[grade7DataHandlingIndex];
+
+  grade7DataHandlingAnswered = false;
+
+  document.getElementById("grade7-data-handling-progress").textContent =
+    "Question " + (grade7DataHandlingIndex + 1) + " of 35";
+
+  document.getElementById("grade7-data-handling-question").textContent =
+    q.question;
+
+  document.getElementById("grade7-data-handling-feedback").textContent = "";
+
+  const optionsArea =
+    document.getElementById("grade7-data-handling-options");
+
+  optionsArea.innerHTML = "";
+
+  q.options.forEach(function(option, index) {
+    const button = document.createElement("button");
+
+    button.type = "button";
+    button.className = "button";
+    button.textContent = option;
+    button.style.display = "block";
+    button.style.width = "100%";
+    button.style.margin = "8px 0";
+
+    button.onclick = function() {
+      answerGrade7DataHandlingQuestion(index);
+    };
+
+    optionsArea.appendChild(button);
+  });
+
+  const nextButton =
+    document.getElementById("grade7-data-handling-next");
+
+  nextButton.disabled = true;
+  nextButton.textContent =
+    grade7DataHandlingIndex === 34 ? "See Results" : "Next Question";
+}
+
+function answerGrade7DataHandlingQuestion(selectedIndex) {
+  if (grade7DataHandlingAnswered) return;
+
+  const q = grade7DataHandlingQuestions[grade7DataHandlingIndex];
+  const correct = selectedIndex === q.answer;
+
+  grade7DataHandlingAnswered = true;
+
+  if (correct) {
+    grade7DataHandlingScore++;
+  }
+
+  grade7DataHandlingUserAnswers.push(selectedIndex);
+
+  const buttons = document.getElementById(
+    "grade7-data-handling-options"
+  ).querySelectorAll("button");
+
+  buttons.forEach(function(button) {
+    button.disabled = true;
+  });
+
+  const feedback =
+    document.getElementById("grade7-data-handling-feedback");
+
+  if (grade7DataHandlingMode === "practice") {
+    feedback.textContent = correct
+      ? "Correct! " + q.explanation
+      : "Not quite. Correct answer: " + q.options[q.answer] +
+        ". " + q.explanation;
+  } else {
+    feedback.textContent = "Answer saved. Continue to the next question.";
+  }
+
+  document.getElementById("grade7-data-handling-next").disabled = false;
+}
+
+function nextGrade7DataHandlingQuestion() {
+  if (!grade7DataHandlingAnswered) return;
+
+  if (grade7DataHandlingIndex < 34) {
+    grade7DataHandlingIndex++;
+    showGrade7DataHandlingQuestion();
+  } else {
+    finishGrade7DataHandlingQuiz();
+  }
+}
+
+function finishGrade7DataHandlingQuiz() {
+  document.getElementById("grade7-data-handling-quiz-area").hidden = true;
+
+  const percentage = Math.round(
+    (grade7DataHandlingScore / 35) * 100
+  );
+
+  let resultHTML =
+    "<h3>Data Handling Quiz Results</h3>" +
+    "<p>Your score: <strong>" +
+    grade7DataHandlingScore + " / 35</strong></p>" +
+    "<p>Percentage: <strong>" + percentage + "%</strong></p>";
+
+  if (percentage >= 80) {
+    resultHTML += "<p>Excellent work! Keep practising.</p>";
+  } else if (percentage >= 50) {
+    resultHTML += "<p>Good effort. Review the questions you missed.</p>";
+  } else {
+    resultHTML += "<p>Keep learning and try again. Practice makes progress.</p>";
+  }
+
+  if (grade7DataHandlingMode === "test") {
+    resultHTML += "<h3>Answer Review</h3>";
+
+    grade7DataHandlingQuestions.forEach(function(q, index) {
+      const selected = grade7DataHandlingUserAnswers[index];
+
+      resultHTML +=
+        "<div style='margin-bottom:16px;padding:10px;border-bottom:1px solid #ccc'>" +
+        "<p><strong>Question " + (index + 1) + ":</strong> " +
+        q.question + "</p>" +
+        "<p>Your answer: " + q.options[selected] + "</p>" +
+        "<p>Correct answer: " + q.options[q.answer] + "</p>" +
+        "<p>" + q.explanation + "</p></div>";
+    });
+  }
+
+  document.getElementById("grade7-data-handling-results").innerHTML =
+    resultHTML;
+}
      </script>
   
 <script>
