@@ -1989,6 +1989,309 @@ function finishGrade7Quiz() {
 
   results.appendChild(retry);
 }
+    
+const grade7AlgebraQuestions = [
+  {
+    q: "In the expression 5x + 3, what is the coefficient of x?",
+    options: ["3", "5", "x", "8"],
+    answer: 1,
+    explanation: "The coefficient is the number multiplying x, which is 5."
+  },
+  {
+    q: "Simplify: 4a + 3a.",
+    options: ["7a", "12a", "7a²", "a"],
+    answer: 0,
+    explanation: "Add like terms: 4a + 3a = 7a."
+  },
+  {
+    q: "Simplify: 8x - 3x + 2.",
+    options: ["5x + 2", "5x - 2", "11x + 2", "5x"],
+    answer: 0,
+    explanation: "8x - 3x = 5x, so the expression is 5x + 2."
+  },
+  {
+    q: "Find 2x + 5 when x = 4.",
+    options: ["9", "11", "13", "18"],
+    answer: 2,
+    explanation: "Substitute 4: 2(4) + 5 = 13."
+  },
+  {
+    q: "Which expression means seven more than n?",
+    options: ["7n", "n - 7", "n + 7", "7 - n"],
+    answer: 2,
+    explanation: "Seven more than n means n + 7."
+  },
+  {
+    q: "Simplify: 3(x + 4).",
+    options: ["3x + 4", "3x + 12", "x + 12", "7x"],
+    answer: 1,
+    explanation: "Multiply both terms by 3: 3x + 12."
+  },
+  {
+    q: "Which pair consists of like terms?",
+    options: ["3x and 3y", "4a and 7a", "2x and 2x²", "5m and 5n"],
+    answer: 1,
+    explanation: "Both terms contain the same variable a to the same power."
+  },
+  {
+    q: "Simplify: 2p + 5 + 3p + 2.",
+    options: ["5p + 7", "5p + 3", "6p + 7", "5p + 10"],
+    answer: 0,
+    explanation: "Combine 2p + 3p = 5p and 5 + 2 = 7."
+  },
+  {
+    q: "A mathematical set costs KSh x. A calculator costs KSh 350. What is the total cost of 3 mathematical sets and one calculator?",
+    options: ["3x + 350", "3 + x + 350", "350x + 3", "3(x + 350)"],
+    answer: 0,
+    explanation: "Three sets cost 3x. Add KSh 350 for the calculator."
+  },
+  {
+    q: "Solve: x + 6 = 14.",
+    options: ["6", "8", "14", "20"],
+    answer: 1,
+    explanation: "Subtract 6 from both sides: x = 8."
+  },
+  {
+    q: "Solve: x - 5 = 9.",
+    options: ["4", "5", "14", "-14"],
+    answer: 2,
+    explanation: "Add 5 to both sides: x = 14."
+  },
+  {
+    q: "Solve: 3x = 21.",
+    options: ["6", "7", "18", "24"],
+    answer: 1,
+    explanation: "Divide both sides by 3: x = 7."
+  },
+  {
+    q: "Solve: x/4 = 5.",
+    options: ["1", "9", "20", "25"],
+    answer: 2,
+    explanation: "Multiply both sides by 4: x = 20."
+  },
+  {
+    q: "Solve: 2x + 3 = 13.",
+    options: ["3", "5", "8", "10"],
+    answer: 1,
+    explanation: "Subtract 3 to get 2x = 10. Divide by 2: x = 5."
+  },
+  {
+    q: "Solve: 5x - 4 = 16.",
+    options: ["2", "3", "4", "5"],
+    answer: 2,
+    explanation: "Add 4 to get 5x = 20. Divide by 5: x = 4."
+  },
+  {
+    q: "A matatu passenger pays KSh 80 and has KSh 220 left. How much money did the passenger have initially?",
+    options: ["KSh 140", "KSh 220", "KSh 300", "KSh 320"],
+    answer: 2,
+    explanation: "Let the initial amount be x. Then x - 80 = 220, so x = KSh 300."
+  },
+  {
+    q: "A farmer packs 48 mangoes equally into 4 crates. How many mangoes are in each crate?",
+    options: ["10", "12", "16", "44"],
+    answer: 1,
+    explanation: "Let each crate contain x mangoes. 4x = 48, so x = 12."
+  },
+  {
+    q: "Which symbol means less than or equal to?",
+    options: [">", "<", "≥", "≤"],
+    answer: 3,
+    explanation: "The symbol ≤ means less than or equal to."
+  },
+  {
+    q: "Solve: x + 4 > 10.",
+    options: ["x > 6", "x < 6", "x > 14", "x < 14"],
+    answer: 0,
+    explanation: "Subtract 4 from both sides: x > 6."
+  },
+  {
+    q: "Solve: x - 3 ≤ 7.",
+    options: ["x ≤ 4", "x ≤ 10", "x ≥ 10", "x ≥ 4"],
+    answer: 1,
+    explanation: "Add 3 to both sides: x ≤ 10."
+  },
+  {
+    q: "Solve: 2x < 12.",
+    options: ["x < 6", "x > 6", "x < 10", "x > 10"],
+    answer: 0,
+    explanation: "Divide both sides by positive 2: x < 6."
+  },
+  {
+    q: "Which number satisfies x + 2 ≥ 8?",
+    options: ["4", "5", "6", "3"],
+    answer: 2,
+    explanation: "Subtract 2: x ≥ 6. Of the options, 6 satisfies the inequality."
+  },
+  {
+    q: "Solve: 3x + 1 ≤ 10.",
+    options: ["x ≤ 3", "x ≥ 3", "x ≤ 9", "x ≥ 9"],
+    answer: 0,
+    explanation: "Subtract 1, then divide by 3: x ≤ 3."
+  },
+  {
+    q: "A learner has KSh 500 to buy exercise books costing KSh 60 each. What is the greatest number they can buy?",
+    options: ["7", "8", "9", "10"],
+    answer: 1,
+    explanation: "60x ≤ 500, so x ≤ 8.33. The greatest whole number of books is 8."
+  },
+  {
+    q: "A school bus can carry at most 45 learners. There are already 28 learners on board. Which inequality represents the number x who can still board?",
+    options: ["28 + x < 45", "28 + x ≤ 45", "28x ≤ 45", "x - 28 ≤ 45"],
+    answer: 1,
+    explanation: "At most 45 means the total must not exceed 45."
+  }
+];
+
+let grade7AlgebraIndex = 0;
+let grade7AlgebraScore = 0;
+let grade7AlgebraAnswered = false;
+let grade7AlgebraUserAnswers = [];
+
+function startGrade7AlgebraQuiz() {
+  grade7AlgebraIndex = 0;
+  grade7AlgebraScore = 0;
+  grade7AlgebraAnswered = false;
+  grade7AlgebraUserAnswers = [];
+
+  document.getElementById("grade7-algebra-results").innerHTML = "";
+  document.getElementById("grade7-algebra-quiz-area").hidden = false;
+
+  const nextButton = document.getElementById("grade7-algebra-next");
+  nextButton.hidden = false;
+
+  showGrade7AlgebraQuestion();
+}
+
+function showGrade7AlgebraQuestion() {
+  const question = grade7AlgebraQuestions[grade7AlgebraIndex];
+
+  document.getElementById("grade7-algebra-progress").textContent =
+    "Question " + (grade7AlgebraIndex + 1) + " of " +
+    grade7AlgebraQuestions.length;
+
+  document.getElementById("grade7-algebra-question").textContent =
+    question.q;
+
+  document.getElementById("grade7-algebra-feedback").textContent = "";
+
+  const optionsArea = document.getElementById("grade7-algebra-options");
+  optionsArea.innerHTML = "";
+
+  question.options.forEach(function(option, index) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.className = "button";
+    button.style.display = "block";
+    button.style.margin = "8px 0";
+    button.style.width = "100%";
+    button.textContent = String.fromCharCode(65 + index) + ". " + option;
+
+    button.addEventListener("click", function() {
+      answerGrade7AlgebraQuestion(index);
+    });
+
+    optionsArea.appendChild(button);
+  });
+
+  grade7AlgebraAnswered = false;
+
+  document.getElementById("grade7-algebra-next").textContent =
+    grade7AlgebraIndex === grade7AlgebraQuestions.length - 1
+      ? "See Results"
+      : "Next Question";
+
+  document.getElementById("grade7-algebra-next").disabled = true;
+}
+
+function answerGrade7AlgebraQuestion(selectedIndex) {
+  if (grade7AlgebraAnswered) return;
+
+  grade7AlgebraAnswered = true;
+
+  const question = grade7AlgebraQuestions[grade7AlgebraIndex];
+  const isCorrect = selectedIndex === question.answer;
+  const mode = document.getElementById("grade7-algebra-mode").value;
+
+  grade7AlgebraUserAnswers[grade7AlgebraIndex] = selectedIndex;
+
+  if (isCorrect) grade7AlgebraScore++;
+
+  const optionButtons = document.getElementById("grade7-algebra-options").children;
+
+  for (let i = 0; i < optionButtons.length; i++) {
+    optionButtons[i].disabled = true;
+  }
+
+  if (mode === "practice") {
+    document.getElementById("grade7-algebra-feedback").textContent =
+      (isCorrect ? "Correct! " : "Not quite. The correct answer is " +
+      String.fromCharCode(65 + question.answer) + ". ") +
+      question.explanation;
+  }
+
+  document.getElementById("grade7-algebra-next").disabled = false;
+}
+
+function nextGrade7AlgebraQuestion() {
+  if (!grade7AlgebraAnswered) return;
+
+  if (grade7AlgebraIndex < grade7AlgebraQuestions.length - 1) {
+    grade7AlgebraIndex++;
+    showGrade7AlgebraQuestion();
+  } else {
+    finishGrade7AlgebraQuiz();
+  }
+}
+
+function finishGrade7AlgebraQuiz() {
+  const total = grade7AlgebraQuestions.length;
+  const percentage = Math.round((grade7AlgebraScore / total) * 100);
+  const mode = document.getElementById("grade7-algebra-mode").value;
+  const results = document.getElementById("grade7-algebra-results");
+
+  let review = "";
+
+  if (mode === "test") {
+    grade7AlgebraQuestions.forEach(function(question, index) {
+      const selected = grade7AlgebraUserAnswers[index];
+      const correct = selected === question.answer;
+
+      review += "<p><strong>Q" + (index + 1) + ":</strong> " +
+        (correct ? "Correct" : "Incorrect") +
+        " — Answer: " +
+        String.fromCharCode(65 + question.answer) +
+        ". " + question.explanation + "</p>";
+    });
+  }
+
+  results.innerHTML =
+    "<h3>Algebra Quiz Results</h3>" +
+    "<p>You scored <strong>" + grade7AlgebraScore + " out of " +
+    total + "</strong> (" + percentage + "%).</p>" +
+    "<p>" +
+    (percentage >= 80 ? "Excellent work! Keep it up." :
+     percentage >= 50 ? "Good effort! Review the questions you missed." :
+     "Keep practising. Review the explanations and try again.") +
+    "</p>" + review;
+
+  document.getElementById("grade7-algebra-quiz-area").hidden = true;
+  document.getElementById("grade7-algebra-next").disabled = true;
+}
+
+<li>
+  <strong>Geometrical Constructions</strong>
+  <p>Geometrical construction is the accurate drawing of shapes and angles using mathematical instruments, especially a ruler and a pair of compasses.</p>
+  <p><strong>Instruments:</strong> Use a ruler to draw straight lines, compasses to draw arcs and circles, and a protractor when measuring angles.</p>
+  <p><strong>Angle bisector:</strong> A line that divides an angle into two equal angles. For example, bisecting 60° gives two angles of 30° each.</p>
+  <p><strong>Common angles:</strong> Practise constructing 90°, 60°, 45° and 30° using suitable compass-and-ruler methods.</p>
+  <p><strong>Constructing 90°:</strong> A perpendicular line forms a right angle of 90° with another line.</p>
+  <p><strong>Constructing 45°:</strong> Bisect a 90° angle to obtain two angles of 45°.</p>
+  <p><strong>Constructing 30°:</strong> Bisect a 60° angle to obtain two angles of 30°.</p>
+  <p><strong>Triangles:</strong> Draw a triangle accurately using the given side lengths or angle and side information, where the measurements determine a unique triangle.</p>
+  <p><strong>Circles:</strong> Use a compass to draw a circle with a specified radius. The compass opening represents the radius.</p>
+  <p><strong>Good practice:</strong> Keep construction arcs visible until the construction is complete, and label points and angles clearly.</p>
+</li>
   </script>
   
 <script>
