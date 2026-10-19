@@ -849,6 +849,70 @@ header#home .button:hover {
     padding: 12px;
   }
 }
+    
+/* Dashboard layout */
+body {
+  margin: 0;
+  background: #f6f9ff;
+  color: #102447;
+  font-family: Arial, sans-serif;
+}
+
+nav[aria-label="Main navigation"] {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 14px 20px;
+  background: #ffffff;
+  border-bottom: 1px solid #dce7f5;
+}
+
+nav[aria-label="Main navigation"] a {
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 9px;
+  color: #24456f;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+nav[aria-label="Main navigation"] a:hover {
+  background: #e7f0ff;
+  color: #1764e8;
+}
+
+main {
+  max-width: 1200px;
+  margin: 24px auto;
+  padding: 0 18px;
+}
+
+.card {
+  border: 1px solid #e0eaf7;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(25, 75, 140, 0.06);
+}
+
+section.section {
+  margin-bottom: 24px;
+}
+
+@media (max-width: 600px) {
+  nav[aria-label="Main navigation"] {
+    gap: 5px;
+    padding: 10px;
+  }
+
+  nav[aria-label="Main navigation"] a {
+    padding: 9px;
+    font-size: 13px;
+  }
+
+  main {
+    margin: 12px auto;
+    padding: 0 10px;
+  }
+}
   </style>
 </head>
 
