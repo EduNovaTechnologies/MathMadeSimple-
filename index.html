@@ -890,16 +890,21 @@ body main {
     margin: 12px 8px;
     padding: 8px;
   }
-
-  body nav[aria-label="Main navigation"] a {
-    padding: 10px 6px;
-    font-size: 12px;
-  }
-
-  body main {
-    margin-left: 170px;
-    padding: 0 8px;
-  }
+  
+body nav[aria-label="Main navigation"] a {
+  display: block !important;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  margin: 3px 0;
+  border-radius: 10px;
+  color: #24456f;
+  background: transparent;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
 }
 
 nav[aria-label="Main navigation"] a {
