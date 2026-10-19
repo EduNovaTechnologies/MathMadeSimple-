@@ -878,16 +878,23 @@ body main {
   padding: 0 24px;
 }
 
+
 @media (max-width: 700px) {
   body nav[aria-label="Main navigation"] {
-    float: none;
-    width: auto;
-    margin: 12px;
+    float: left;
+    width: 150px;
+    margin: 12px 8px;
+    padding: 8px;
+  }
+
+  body nav[aria-label="Main navigation"] a {
+    padding: 10px 6px;
+    font-size: 12px;
   }
 
   body main {
-    margin-left: 0;
-    padding: 0 12px;
+    margin-left: 170px;
+    padding: 0 8px;
   }
 }
 
