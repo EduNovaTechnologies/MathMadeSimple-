@@ -772,6 +772,83 @@ input, select, textarea, button {
     padding-left: 32px;
   }
 }
+    
+/* Maths Made Simple - modern dashboard */
+body {
+  background: #f6f9ff;
+  color: #102447;
+  font-family: Arial, sans-serif;
+}
+
+header#home {
+  background: linear-gradient(135deg, #ffffff, #eaf3ff);
+  border: 1px solid #d9e8ff;
+  border-radius: 22px;
+  margin: 24px auto;
+  padding: 55px 24px;
+  max-width: 1200px;
+  text-align: center;
+  box-shadow: 0 5px 18px rgba(25, 75, 140, 0.08);
+}
+
+header#home .brand {
+  color: #102447;
+  font-size: clamp(30px, 5vw, 52px);
+  font-weight: 800;
+}
+
+header#home .hero-text {
+  color: #526783;
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 680px;
+  margin: 20px auto;
+}
+
+header#home .button {
+  display: inline-block;
+  background: #1764e8;
+  color: white;
+  padding: 13px 24px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 6px;
+}
+
+header#home .button:hover {
+  background: #104db8;
+}
+
+#topics,
+#revision-papers {
+  max-width: 1200px;
+  margin: 28px auto;
+  padding: 20px;
+}
+
+#topics h2,
+#revision-papers h2 {
+  color: #123b70;
+}
+
+#topics > *,
+#revision-papers > * {
+  border-radius: 14px;
+}
+
+@media (max-width: 600px) {
+  header#home {
+    margin: 12px;
+    padding: 35px 18px;
+  }
+
+  #topics,
+  #revision-papers {
+    margin: 12px;
+    padding: 12px;
+  }
+}
   </style>
 </head>
 
