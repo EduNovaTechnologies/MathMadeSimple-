@@ -1006,6 +1006,31 @@ body h1:first-of-type {
   margin-left: auto !important;
   margin-right: auto !important;
 }
+    
+/* Separate the sidebar from the learning area */
+body nav[aria-label="Main navigation"] {
+  position: relative;
+  z-index: 2;
+}
+
+body main {
+  overflow: hidden;
+  min-width: 0;
+}
+
+body main::before {
+  content: "";
+  display: block;
+  height: 1px;
+  background: #dce7f5;
+  margin-bottom: 20px;
+}
+
+@media (min-width: 701px) {
+  body main::before {
+    display: none;
+  }
+}
   </style>
 </head>
 
