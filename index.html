@@ -1067,6 +1067,30 @@ body main::before {
   font-size: 11px;
   line-height: 1.5;
 }
+    
+/* Professional sidebar navigation */
+body nav[aria-label="Main navigation"] a {
+  display: block;
+  padding: 12px 14px;
+  margin: 4px 0;
+  border-radius: 10px;
+  color: #24456f;
+  background: transparent;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+body nav[aria-label="Main navigation"] a:hover {
+  background: #e8f1ff;
+  color: #1764e8;
+}
+
+body nav[aria-label="Main navigation"] a:focus-visible {
+  outline: 2px solid #1764e8;
+  outline-offset: 2px;
+}
   </style>
 </head>
 
