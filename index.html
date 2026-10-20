@@ -1183,6 +1183,36 @@ body nav[aria-label="Main navigation"] a:focus-visible {
     margin-bottom: 16px;
   }
 }
+    
+/* Clear dashboard section headings */
+.section-heading {
+  font-size: clamp(21px, 3vw, 28px);
+  font-weight: 800;
+  letter-spacing: -0.3px;
+  margin-bottom: 16px;
+}
+
+#topics,
+#revision-papers,
+#quiz {
+  scroll-margin-top: 24px;
+}
+
+#topics,
+#revision-papers {
+  padding-top: 8px;
+}
+
+/* Keep section content readable */
+.section p {
+  line-height: 1.75;
+}
+
+@media (max-width: 600px) {
+  .section-heading {
+    font-size: 22px;
+  }
+}
   </style>
 </head>
 
