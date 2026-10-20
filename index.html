@@ -1150,6 +1150,39 @@ body nav[aria-label="Main navigation"] a:focus-visible {
     margin: 10px 0;
   }
 }
+    
+/* Professional learning cards */
+.card {
+  border-radius: 16px;
+  border: 1px solid #e1eaf6;
+  box-shadow: 0 5px 18px rgba(18, 59, 112, 0.06);
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.card:hover {
+  box-shadow: 0 9px 24px rgba(18, 59, 112, 0.10);
+}
+
+.section {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.section-heading {
+  color: #123b70;
+  line-height: 1.4;
+}
+
+@media (max-width: 600px) {
+  .card:hover {
+    transform: none;
+  }
+
+  .section {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+}
   </style>
 </head>
 
