@@ -1340,6 +1340,61 @@ body main textarea {
     margin-bottom: 18px;
   }
 }
+    
+/* Restore the dashboard layout */
+@media (min-width: 769px) {
+  body {
+    display: grid;
+    grid-template-columns: 220px minmax(0, 1fr);
+    align-items: start;
+    gap: 0;
+  }
+
+  body nav[aria-label="Main navigation"] {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 220px;
+    max-width: 220px;
+    min-width: 0;
+    margin: 0;
+    position: sticky;
+    top: 0;
+    align-self: start;
+    max-height: 100vh;
+    overflow-y: auto;
+  }
+
+  body main {
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    max-width: none;
+    min-width: 0;
+    margin: 0;
+    padding: 28px;
+  }
+}
+
+/* Mobile: stack navigation and content */
+@media (max-width: 768px) {
+  body {
+    display: block;
+  }
+
+  body nav[aria-label="Main navigation"] {
+    width: 100%;
+    max-width: 100%;
+    position: static;
+    max-height: none;
+  }
+
+  body main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 16px;
+  }
+}
   </style>
 </head>
 
