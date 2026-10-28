@@ -1213,6 +1213,82 @@ body nav[aria-label="Main navigation"] a:focus-visible {
     font-size: 22px;
   }
 }
+    
+/* FIX: Main layout and content width */
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+body {
+  display: block;
+}
+
+/* Keep the main content from being squeezed */
+body main,
+main {
+  width: 100%;
+  max-width: 1200px;
+  min-width: 0;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+/* Keep navigation from forcing content sideways */
+body nav[aria-label="Main navigation"] {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  margin: 0;
+  position: relative;
+}
+
+/* Make sections and cards fit their containers */
+section,
+article,
+.card,
+.container {
+  max-width: 100%;
+  min-width: 0;
+}
+
+img,
+video,
+iframe {
+  max-width: 100%;
+}
+
+/* Tablet and mobile layout */
+@media (max-width: 768px) {
+  body main,
+  main {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 16px;
+  }
+
+  body nav[aria-label="Main navigation"] {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .container,
+  .grid,
+  .cards,
+  .card-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+}
   </style>
 </head>
 
